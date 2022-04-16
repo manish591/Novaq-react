@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import { Rules } from 'pages';
+import { CategoryPage } from 'pages';
 
 const App = () => (
   <div className="App">
-    <Rules />
+    <CategoryPage />
   </div>
 );
 

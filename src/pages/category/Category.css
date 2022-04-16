@@ -1,0 +1,119 @@
+/* ---------------- */
+/* container styles */
+/* --------------- */
+
+.category-page {
+  margin-block: 5rem; /* Remove this */
+  gap: 4rem;
+}
+
+/* --------------- */
+/* category-header */
+/* --------------- */
+
+.category-page__header {
+  color: var(--light-clr);
+  text-align: center;
+}
+
+.category-header__wrapper {
+  inline-size: 100%;
+  margin-inline: auto;
+  background-color: var(--brand);
+  padding-block: 2rem;
+  padding-inline: 1rem;
+}
+
+.category-header__title {
+  font-size: var(--fs-800);
+  letter-spacing: 1.2px;
+}
+
+.category-header__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-block-start: 0.5rem;
+}
+
+.category-header__description {
+  max-inline-size: 30ch;
+  margin-inline: auto;
+}
+
+/* ------------- */
+/* Category list */
+/* ------------- */
+
+.category-list__wrapper {
+  inline-size: min(90%, 1000px);
+  margin-inline: auto;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 3rem;
+}
+
+/* -------------------------- */
+/* Resetting nova card styles */
+/* -------------------------- */
+
+.quiz-card__card {
+  inline-size: unset;
+}
+
+.quiz-card__content {
+  border-block-end: none;
+}
+
+.quiz-card__title {
+  line-height: 1.1;
+  font-size: 0.9rem;
+}
+
+.quiz-card__subtitle {
+  margin-block-end: 0.2rem;
+  opacity: 0.7;
+}
+
+.quiz-card__info {
+  opacity: 1;
+}
+
+/* ---------------- */
+/* Other categories */
+/* ---------------- */
+
+.category-other__title {
+  text-align: center;
+}
+
+.category-other__wrapper {
+  inline-size: min(90%, 1000px);
+  margin-inline: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 220px;
+  gap: 2rem;
+  margin-block-start: 3rem;
+}
+
+.category-other__container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface4);
+  border-radius: 10px;
+  gap: 0.3rem;
+}
+
+@media (min-width: 600px) {
+  .category-header__wrapper {
+    inline-size: min(90%, 1000px);
+    border-radius: 10px;
+  }
+
+  .category-header__description {
+    max-inline-size: 45ch;
+  }
+
+  .category-other__wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
