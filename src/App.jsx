@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import { LandingPage } from 'pages';
+import { Rules } from 'pages';
 
 const App = () => (
   <div className="App">
-    <LandingPage />
+    <Rules />
   </div>
 );
 

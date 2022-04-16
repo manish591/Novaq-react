@@ -1,0 +1,33 @@
+.rules {
+  inline-size: min(90%, 500px);
+  margin-inline: auto;
+  margin-block: 3rem;
+  box-shadow: 2px 3px 6px rgba(0, 0, 0, 20%);
+}
+
+.rules__heading {
+  font-size: 1.8rem;
+}
+
+.rules__item {
+  gap: 0.5rem;
+}
+
+.rules__item > span {
+  opacity: 0.6;
+  color: var(--brand);
+}
+
+.rules__list {
+  gap: 1.2rem;
+}
+
+.rules__item--action {
+  border-block-start: 1px solid var(--surface4);
+  padding-block: 0.7rem;
+  inline-size: 100%;
+}
+
+.rules__start-quiz {
+  inline-size: 100%;
+}
