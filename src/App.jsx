@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import { Result } from 'pages';
+import { QuestionPage } from 'pages';
 
 const App = () => (
   <div className="App">
-    <Result />
+    <QuestionPage />
   </div>
 );
 
