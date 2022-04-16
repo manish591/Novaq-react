@@ -1,8 +1,11 @@
 import React from 'react';
+import { Navbar } from 'components';
 
 const LandingPage = () => (
   <div className="landing-page">
-    <h1>This is landing page</h1>
+    <header className="header grid">
+      <Navbar />
+    </header>
   </div>
 );
 

@@ -1,0 +1,9 @@
+/* Global Styles */
+
+.material-black {
+  color: black;
+}
+
+.header {
+  grid-template-columns: 1fr;
+}
