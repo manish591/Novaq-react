@@ -7,3 +7,14 @@
 .header {
   grid-template-columns: 1fr;
 }
+
+.novaq-wrapper {
+  grid-template-columns: 1fr;
+  gap: 7rem;
+}
+
+@media (max-width: 299px) {
+  .material-black {
+    font-size: 1.5rem !important;
+  }
+}
