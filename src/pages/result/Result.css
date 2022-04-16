@@ -1,0 +1,85 @@
+.result {
+  inline-size: min(90%, 1000px);
+  margin-inline: auto;
+  margin-block: 2rem;
+  gap: 2rem;
+}
+
+.result__messages {
+  text-align: center;
+}
+
+.result__title {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.result__greeting {
+  font-weight: 100;
+  margin-top: 0.5rem;
+}
+
+.result__score {
+  font-weight: bold;
+}
+
+.question-card__choices-list {
+  gap: 1rem;
+  margin-block-start: 1rem;
+}
+
+.question-card__title {
+  line-height: 1.1;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  font-weight: 100;
+  letter-spacing: 1.1px;
+}
+
+.question-card__number {
+  opacity: 0.8;
+  color: grey;
+}
+
+.result__details {
+  gap: 2rem;
+}
+
+.question-card__choices {
+  background-color: var(--surface4);
+  padding-inline: 0.5rem;
+  padding-block: 1.2rem;
+  border-radius: 6px;
+}
+
+.question-card__choices--right {
+  background-color: var(--clr-success);
+  color: var(--light-clr);
+}
+
+.question-card__choices--wrong {
+  background-color: var(--clr-danger);
+  color: var(--light-clr);
+}
+
+.question-card + .question-card {
+  border-block-start: 1px solid var(--surface4);
+  padding-block-start: 0.8rem;
+}
+
+@media (min-width: 600px) {
+  .question-card__choices-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .question-card__choices {
+    padding-inline: 0.8rem;
+    padding-block: 1.8rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  .question-card + .question-card {
+    padding-block-start: 1rem;
+  }
+}

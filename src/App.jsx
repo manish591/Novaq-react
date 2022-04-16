@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-import { CategoryPage } from 'pages';
+import { Result } from 'pages';
 
 const App = () => (
   <div className="App">
-    <CategoryPage />
+    <Result />
   </div>
 );
 
