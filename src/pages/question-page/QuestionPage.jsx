@@ -15,8 +15,7 @@ const QuestionPage = () => (
           <li className="question-nav__items">
             <button
               type="button"
-              className="question-nav__end btn btn--outlined-secondary"
-            >
+              className="question-nav__end btn btn--outlined-secondary">
               End Quiz
             </button>
           </li>
@@ -56,8 +55,7 @@ const QuestionPage = () => (
               </button>
               <button
                 type="button"
-                className="question-action__next btn btn--contained-primary"
-              >
+                className="question-action__next btn btn--contained-primary">
                 <a href="/pages/result.html">Save & Next</a>
               </button>
             </div>
