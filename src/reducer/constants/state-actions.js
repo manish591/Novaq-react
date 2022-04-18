@@ -1,0 +1,5 @@
+const ACTION_TYPES = {
+  SET_CATEGORIES: 'SET_CATEGORIES'
+};
+
+export { ACTION_TYPES };
