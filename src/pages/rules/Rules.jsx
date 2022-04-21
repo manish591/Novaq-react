@@ -1,5 +1,6 @@
 import React from 'react';
 import './Rules.css';
+import { Link } from 'react-router-dom';
 
 import { Navbar, Footer } from 'components';
 
@@ -50,9 +51,8 @@ const Rules = () => (
         <li className="lists__item rules__item--action">
           <button
             type="button"
-            className="rules__start-quiz btn btn--contained-primary"
-          >
-            <a href="/pages/question.html">Start Quiz</a>
+            className="rules__start-quiz btn btn--contained-primary">
+            <Link to="/question">Start Quiz</Link>
           </button>
         </li>
       </ul>
