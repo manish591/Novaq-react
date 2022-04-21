@@ -10,6 +10,7 @@ export const quizzes = [
     _id: '6db2deca-544e-499a-aed8-ffee86a534bb',
     title: 'Are You a book Reader? PartI',
     totalScore: 25,
+    totalQuestions: 5,
     catergory_name: 'Books',
     difficulty: 'Easy',
     mcqs: [
@@ -18,9 +19,10 @@ export const quizzes = [
         type: 'multiple',
         question: 'Who wrote &quot;Harry Potter&quot;?',
         correct_answer: 'J.K. Rowling',
-        incorrect_answers: [
+        options: [
           'J.R.R. Tolkien',
           'Terry Pratchett',
+          'J.K. Rowling',
           'Daniel Radcliffe'
         ]
       },
@@ -30,7 +32,8 @@ export const quizzes = [
         question:
           'George Orwell wrote this book, which is often considered a statement on government oversight.',
         correct_answer: '1984',
-        incorrect_answers: [
+        options: [
+          '1984',
           'The Old Man and the Sea',
           'Catcher and the Rye',
           'To Kill a Mockingbird'
@@ -42,10 +45,11 @@ export const quizzes = [
         question:
           'Which famous book is sub-titled &#039;The Modern Prometheus&#039;?',
         correct_answer: 'Frankenstein',
-        incorrect_answers: [
+        options: [
           'Dracula',
           'The Strange Case of Dr. Jekyll and Mr. Hyde ',
-          'The Legend of Sleepy Hollow'
+          'The Legend of Sleepy Hollow',
+          'Frankenstein'
         ]
       },
       {
@@ -54,7 +58,12 @@ export const quizzes = [
         question:
           'What was the name of Captain Nemo&#039;s submarine in &quot;20,000 Leagues Under the Sea&quot;?',
         correct_answer: 'The Nautilus',
-        incorrect_answers: ['The Neptune', 'The Poseidon  ', 'The Atlantis']
+        options: [
+          'The Neptune',
+          'The Poseidon  ',
+          'The Nautilus',
+          'The Atlantis'
+        ]
       },
       {
         _id: uuid(),
@@ -62,10 +71,11 @@ export const quizzes = [
         question:
           'Which of the following is the world&#039;s best-selling book?',
         correct_answer: 'The Lord of the Rings',
-        incorrect_answers: [
+        options: [
           'The Little Prince',
           'Harry Potter and the Philosopher&#039;s Stone',
-          'The Da Vinci Code'
+          'The Da Vinci Code',
+          'The Lord of the Rings'
         ]
       }
     ]
@@ -74,6 +84,7 @@ export const quizzes = [
     _id: 'f8bc7e28-da53-469e-98dd-3e0b288021c8',
     title: 'Are You a book Reader? PartII',
     totalScore: 50,
+    totalQuestions: 10,
     catergory_name: 'Books',
     difficulty: 'Easy',
     mcqs: [
@@ -83,9 +94,10 @@ export const quizzes = [
         question:
           'Who wrote the novel &#039;Fear And Loathing In Las Vegas&#039;?',
         correct_answer: 'Hunter S. Thompson',
-        incorrect_answers: [
+        options: [
           'F. Scott Fitzgerald',
           'Henry Miller',
+          'Hunter S. Thompson',
           'William S. Burroughs'
         ]
       },
@@ -94,7 +106,7 @@ export const quizzes = [
         type: 'multiple',
         question: '&quot;Green Eggs And Ham&quot; is a book by which author?',
         correct_answer: 'Dr. Seuss',
-        incorrect_answers: ['Beatrix Potter', 'Roald Dahl', 'A.A. Milne']
+        options: ['Beatrix Potter', 'Dr. Seuss', 'Roald Dahl', 'A.A. Milne']
       },
       {
         _id: uuid(),
@@ -102,14 +114,19 @@ export const quizzes = [
         question:
           'Which famous spy novelist wrote the childrens&#039; story &quot;Chitty-Chitty-Bang-Bang&quot;?',
         correct_answer: 'Ian Fleming',
-        incorrect_answers: ['Joseph Conrad', 'John Buchan', 'Graham Greene']
+        options: [
+          'Ian Fleming',
+          'Joseph Conrad',
+          'John Buchan',
+          'Graham Greene'
+        ]
       },
       {
         _id: uuid(),
         type: 'multiple',
         question: 'How many Harry Potter books are there?',
         correct_answer: '7',
-        incorrect_answers: ['8', '5', '6']
+        options: ['8', '5', '7', '6']
       },
       {
         _id: uuid(),
@@ -117,14 +134,24 @@ export const quizzes = [
         question:
           'Under what pseudonym did Stephen King publish five novels between 1977 and 1984?',
         correct_answer: 'Richard Bachman',
-        incorrect_answers: ['J. D. Robb', 'Mark Twain', 'Lewis Carroll']
+        options: [
+          'J. D. Robb',
+          'Mark Twain',
+          'Lewis Carroll',
+          'Richard Bachman'
+        ]
       },
       {
         _id: uuid(),
         type: 'multiple',
         question: 'What&#039;s Harry Potter&#039;s dad&#039;s name?',
         correct_answer: 'James Potter',
-        incorrect_answers: ['Joey Potter', 'Frank Potter', 'Hairy Potter Sr.']
+        options: [
+          'Joey Potter',
+          'Frank Potter',
+          'Hairy Potter Sr.',
+          'James Potter'
+        ]
       },
       {
         _id: uuid(),
@@ -132,7 +159,8 @@ export const quizzes = [
         question:
           'Who wrote the young adult novel &quot;The Fault in Our Stars&quot;?',
         correct_answer: 'John Green',
-        incorrect_answers: [
+        options: [
+          'John Green',
           'Stephenie Meyer',
           'Suzanne Collins',
           'Stephen Chbosky'
@@ -144,7 +172,12 @@ export const quizzes = [
         question:
           'Who was the author of the 1954 novel, &quot;Lord of the Flies&quot;?',
         correct_answer: 'William Golding',
-        incorrect_answers: ['Stephen King', 'F. Scott Fitzgerald', 'Hunter Fox']
+        options: [
+          'Stephen King',
+          'F. Scott Fitzgerald',
+          'William Golding',
+          'Hunter Fox'
+        ]
       },
       {
         _id: uuid(),
@@ -152,7 +185,7 @@ export const quizzes = [
         question:
           'What is the name of the three headed dog in Harry Potter and the Sorcerer&#039;s Stone?',
         correct_answer: 'Fluffy',
-        incorrect_answers: ['Spike', 'Poofy', 'Spot']
+        options: ['Spike', 'Poofy', 'Spot', 'Fluffy']
       },
       {
         _id: uuid(),
@@ -160,7 +193,12 @@ export const quizzes = [
         question:
           'What is the name of the protagonist of J.D. Salinger&#039;s novel Catcher in the Rye?',
         correct_answer: 'Holden Caulfield',
-        incorrect_answers: ['Fletcher Christian', 'Jay Gatsby', 'Randall Flagg']
+        options: [
+          'Fletcher Christian',
+          'Jay Gatsby',
+          'Holden Caulfield',
+          'Randall Flagg'
+        ]
       }
     ]
   },
@@ -168,6 +206,7 @@ export const quizzes = [
     _id: 'c737ff91-5745-42ba-920e-4a4050ba5b30',
     title: 'Are You a book Reader? PartIII',
     totalScore: 25,
+    totalQuestions: 5,
     catergory_name: 'Books',
     difficulty: 'Easy',
     mcqs: [
@@ -176,9 +215,10 @@ export const quizzes = [
         question:
           'What is the title of the first Sherlock Holmes book by Arthur Conan Doyle?',
         correct_answer: 'A Study in Scarlet',
-        incorrect_answers: [
+        options: [
           'The Sign of the Four',
           'A Case of Identity',
+          'A Study in Scarlet',
           'The Doings of Raffles Haw'
         ]
       },
@@ -186,7 +226,8 @@ export const quizzes = [
         type: 'multiple',
         question: 'What is the name of Sherlock Holmes&#039;s brother?',
         correct_answer: 'Mycroft Holmes',
-        incorrect_answers: [
+        options: [
+          'Mycroft Holmes',
           'Mederi Holmes',
           'Martin Holmes',
           'Herbie Hancock Holmes'
@@ -197,10 +238,11 @@ export const quizzes = [
         question:
           'What&#039;s the second book in George R. R. Martin&#039;s &#039;A Song of Ice and Fire&#039; series?',
         correct_answer: 'A Clash of Kings',
-        incorrect_answers: [
+        options: [
           'A Dance with Dragons',
           'A Storm of Swords',
-          'A Feast for Crows'
+          'A Feast for Crows',
+          'A Clash of Kings'
         ]
       },
       {
@@ -208,14 +250,15 @@ export const quizzes = [
         question:
           'What was the first ever entry written for the SCP Foundation collaborative writing project?',
         correct_answer: 'SCP-173',
-        incorrect_answers: ['SCP-001', 'SCP-999', 'SCP-1459']
+        options: ['SCP-001', 'SCP-173', 'SCP-999', 'SCP-1459']
       },
       {
         type: 'multiple',
         question: 'Which is NOT a book in the Harry Potter Series?',
         correct_answer: 'The House Elf',
-        incorrect_answers: [
+        options: [
           'The Chamber of Secrets',
+          'The House Elf',
           'The Prisoner of Azkaban',
           'The Deathly Hallows'
         ]
@@ -226,6 +269,7 @@ export const quizzes = [
     _id: '5a7ebe32-5196-4a4d-8f05-4ea8ad281bff',
     title: 'Are You a book Reader? PartIV',
     totalScore: 100,
+    totalQuestions: 20,
     catergory_name: 'Books',
     difficulty: 'Medium',
     mcqs: []
@@ -234,6 +278,7 @@ export const quizzes = [
     _id: 'd1b00287-3a3f-47f1-bf0f-0f03dcd5bb77',
     title: 'Are You a book Reader? PartV',
     totalScore: 95,
+    totalQuestions: 19,
     catergory_name: 'Books',
     difficulty: 'Medium',
     mcqs: []
@@ -242,6 +287,7 @@ export const quizzes = [
     _id: 'da606624-d7c7-44cb-b3a3-71be81de6e7e',
     title: 'Are You a book Reader? PartIV',
     totalScore: 100,
+    totalQuestions: 20,
     catergory_name: 'Books',
     difficulty: 'Medium',
     mcqs: []
@@ -250,6 +296,7 @@ export const quizzes = [
     _id: '69fd5f18-9505-44fa-b4d1-ac3355eb0159',
     title: 'Are You a book Reader? PartVI',
     totalScore: 100,
+    totalQuestions: 20,
     catergory_name: 'Books',
     difficulty: 'Hard',
     mcqs: []
@@ -258,6 +305,7 @@ export const quizzes = [
     _id: 'ce495310-4737-49e6-b4ab-9fdaaaf42f08',
     title: 'Are You a book Reader? PartVII',
     totalScore: 25,
+    totalQuestions: 5,
     catergory_name: 'Books',
     difficulty: 'Hard',
     mcqs: []
