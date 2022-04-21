@@ -33,6 +33,17 @@
     "rules": {
         "import/prefer-default-export": "off",
         "no-underscore-dangle": "off",
+        "jsx-a11y/label-has-associated-control": [
+            "error",
+            {
+                "required": {
+                    "some": [
+                        "nesting",
+                        "id"
+                    ]
+                }
+            }
+        ],
         "no-console": [
             "warn",
             { "allow": [
