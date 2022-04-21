@@ -1,5 +1,7 @@
 const initialState = {
-  categories: []
+  categories: [],
+  currentQuiz: {},
+  setAnswers: {}
 };
 
 export { initialState };

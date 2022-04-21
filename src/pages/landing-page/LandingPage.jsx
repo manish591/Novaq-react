@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { ACTION_TYPES } from 'reducer';
 import { useStateContext } from 'hooks';
-import { Navbar, Footer } from 'components';
+import { Navbar, Footer, QuizCard } from 'components';
 import { HeroSection } from './sub-comp/HeroSection';
 
 const LandingPage = () => {
@@ -60,47 +60,7 @@ const LandingPage = () => {
           <section className="main__bottom popular">
             <h1 className="popular__title">Popular Quizzes</h1>
             <div className="popular__container grid">
-              <article className="popular__quiz quiz-card flex">
-                <section className="card card--basic quiz-card__card">
-                  <div className="card__image-container">
-                    <img
-                      src="https://images.unsplash.com/photo-1504387828636-abeb50778c0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-                      alt="cooking"
-                      className="card__image"
-                    />
-                  </div>
-                  <div className="card__content quiz-card__content">
-                    <h3 className="card__title quiz-card__title">
-                      Do you know these cooking Jargons?
-                    </h3>
-                    <p className="card__author quiz-card__subtitle">
-                      Take this quiz to test yourself
-                    </p>
-                    <p className="card__info quiz-card__info">10 Questions</p>
-                    <a href="/pages/rules.html">View Quiz</a>
-                  </div>
-                </section>
-              </article>
-              <article className="popular__quiz quiz-card flex">
-                <section className="card card--basic quiz-card__card">
-                  <div className="card__image-container">
-                    <img
-                      src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c291dGglMjBpbmRpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60"
-                      alt="south-indian-food"
-                      className="card__image"
-                    />
-                  </div>
-                  <div className="card__content quiz-card__content">
-                    <h3 className="card__title quiz-card__title">
-                      Do you know about south indian food?
-                    </h3>
-                    <p className="card__author quiz-card__subtitle">
-                      Take this quiz to test yourself
-                    </p>
-                    <p className="card__info quiz-card__info">5 Questions</p>
-                  </div>
-                </section>
-              </article>
+              <QuizCard />
             </div>
           </section>
         </div>

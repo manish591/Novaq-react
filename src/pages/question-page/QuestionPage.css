@@ -102,6 +102,14 @@
   flex: 0;
 }
 
+.choices__item--selected {
+  background-color: var(--brand);
+}
+
+.choices__item--selected > button {
+  color: var(--surface2);
+}
+
 @media (max-width: 299px) {
   .question-action__next {
     block-size: 35px;
