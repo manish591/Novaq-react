@@ -8,7 +8,8 @@ import {
   QuestionPage,
   Result,
   Rules,
-  QuizContainer
+  QuizContainer,
+  Login
 } from 'pages';
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
         <Route path="question" element={<QuestionPage />} />
       </Route>
       <Route path="/category" element={<CategoryPage />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   </div>
 );

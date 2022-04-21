@@ -1,5 +1,6 @@
 import React from 'react';
 import './HeroSection.css';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -17,7 +18,7 @@ const HeroSection = () => {
           <button
             type="button"
             className="hero__action btn btn--contained-warning">
-            Explore
+            <Link to="/login">Explore</Link>
           </button>
         </section>
         <section className="hero__image-container">
