@@ -1,15 +1,12 @@
 import React from 'react';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
 
 const Navbar = () => (
   <nav className="navbar">
     <div className="navbar__wrapper flex">
       <ul className="navbar__list flex">
         <li className="navbar__items">
-          <Link to="/">
-            <h1 className="navbar__logo">NovaQ</h1>
-          </Link>
+          <h2 className="navbar__logo">NovaQ</h2>
         </li>
       </ul>
       <ul className="navbar__list navbar__list--normal flex">

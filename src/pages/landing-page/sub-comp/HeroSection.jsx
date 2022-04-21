@@ -15,7 +15,8 @@ const HeroSection = () => (
         </p>
         <button
           type="button"
-          className="hero__action btn btn--contained-warning">
+          className="hero__action btn btn--contained-warning"
+        >
           Explore
         </button>
       </section>

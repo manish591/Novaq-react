@@ -7,8 +7,7 @@
         "plugin:react/recommended",
         "airbnb",
         "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:prettier/recommended"
+        "plugin:import/warnings"
     ],
     "settings": {
         "import/resolver": {
@@ -28,17 +27,10 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react", "prettier"
+        "react"
     ],
     "rules": {
         "import/prefer-default-export": "off",
-        "prettier/prettier": [
-            "error",
-            {
-                "singleQuote": true,
-                "parser": "flow"
-            }
-        ],
         "react/function-component-definition": [1,
             {
                 "namedComponents": "arrow-function",
