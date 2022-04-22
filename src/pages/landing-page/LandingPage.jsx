@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import './LandingPage.css';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { db } from 'firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
 import { ACTION_TYPES } from 'reducer';
 import { useStateContext } from 'hooks';
 import { Navbar, Footer, QuizCard } from 'components';
@@ -9,17 +10,19 @@ import { HeroSection } from './sub-comp/HeroSection';
 
 const LandingPage = () => {
   const { state, stateDispatch } = useStateContext();
+  const categoriesRef = collection(db, 'categories');
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get('/api/categories');
-        if (res.status === 200) {
-          stateDispatch({
-            type: ACTION_TYPES.SET_CATEGORIES,
-            payload: { category: res.data.categories }
-          });
-        }
+        const res = await getDocs(categoriesRef);
+        const newCategories = res.docs.map((doc) => {
+          return { ...doc.data() };
+        });
+        stateDispatch({
+          type: ACTION_TYPES.SET_CATEGORIES,
+          payload: { category: newCategories }
+        });
       } catch (err) {
         console.error('Unexpected error while loading categories', err);
       }

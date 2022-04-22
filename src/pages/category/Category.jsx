@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './Category.css';
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
-import { Footer, Navbar, QuizCard } from 'components';
+// import { useLocation } from 'react-router-dom';
+import { Footer, Navbar } from 'components';
 
 const CategoryPage = () => {
-  const [categoryData, setCategoryData] = useState({});
-  const location = useLocation();
-  const categoryId = location?.state?.categoryId;
+  // const [categoryData, setCategoryData] = useState({});
+  // const location = useLocation();
+  // const categoryId = location?.state?.categoryId;
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(`/api/categories/${categoryId}`);
-        if (res.status === 200) {
-          setCategoryData(res.data.category);
-        }
+        // setCategoryData(res.data.category);
       } catch (err) {
         console.error('Error in getting quiz for this category', err);
       }
@@ -31,15 +27,15 @@ const CategoryPage = () => {
         <header className="category-page__header category-header">
           <div className="category-header__wrapper">
             <h2 className="category-header__title">
-              {categoryData?.categoryName}
+              {/* {categoryData?.categoryName} */}
             </h2>
             <p className="category-header__description">
-              {categoryData?.description}
+              {/* {categoryData?.description} */}
             </p>
           </div>
         </header>
         <section className="category-page__list category-list">
-          {categoryData.quizzes && categoryData.quizzes.length < 1 ? (
+          {/* {categoryData.quizzes && categoryData.quizzes.length < 1 ? (
             <div className="category-page__coming-soon">
               <h1>Coming Soon...</h1>
             </div>
@@ -50,7 +46,7 @@ const CategoryPage = () => {
                   return <QuizCard key={item._id} />;
                 })}
             </div>
-          )}
+          )} */}
         </section>
         <section className="category-page__other-quiz category-other">
           <h2 className="category-other__title">Explore Other Categories</h2>
