@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import './Signup.css';
 import { Link } from 'react-router-dom';
+import { useAuthService } from 'hooks';
 
 const Signup = () => {
   const [userSignupData, setUserSignupData] = useState({
-    firstname: '',
+    name: '',
     email: '',
     password: '',
     confirmPassword: ''
   });
 
+  const { signup } = useAuthService();
+
   const handleUserSignup = (e) => {
     e.preventDefault();
+    signup(userSignupData.email, userSignupData.password);
   };
 
   return (
@@ -30,11 +34,11 @@ const Signup = () => {
               name="name"
               className="signup__name"
               autoComplete="name"
-              value={userSignupData.firstname}
+              value={userSignupData.name}
               onChange={(e) =>
                 setUserSignupData({
                   ...userSignupData,
-                  firstname: e.target.value
+                  name: e.target.value
                 })
               }
               required

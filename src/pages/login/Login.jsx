@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
+import { useAuthService } from 'hooks';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -8,8 +9,11 @@ const Login = () => {
     password: ''
   });
 
+  const { login } = useAuthService();
+
   const handleUserLogin = (e) => {
     e.preventDefault();
+    login(loginData.email, loginData.password);
   };
 
   return (

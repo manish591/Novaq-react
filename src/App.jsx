@@ -10,7 +10,8 @@ import {
   Rules,
   QuizContainer,
   Login,
-  Signup
+  Signup,
+  Profile
 } from 'pages';
 
 const App = () => (
@@ -24,7 +25,8 @@ const App = () => (
       </Route>
       <Route path="/category" element={<CategoryPage />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/singup" element={<Signup />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
   </div>
 );

@@ -15,7 +15,9 @@ const Navbar = () => (
       <ul className="navbar__list navbar__list--normal flex">
         <li className="navbar__items navbar__items--name">Home</li>
         <li className="navbar__items navbar__items--name">Dashboard</li>
-        <li className="navbar__items navbar__items--name">Profile</li>
+        <li className="navbar__items navbar__items--name">
+          <Link to="/profile">Profile</Link>
+        </li>
       </ul>
       <ul className="navbar__list navbar__list--icons flex">
         <li className="navbar__items">
