@@ -1,11 +1,12 @@
 import React from 'react';
 import './Rules.css';
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useScrollToTop } from 'hooks';
 import { Navbar, Footer } from 'components';
 
 const Rules = () => {
   const { quizId } = useParams();
+  const navigate = useNavigate();
   useScrollToTop();
   return (
     <div>
@@ -54,13 +55,14 @@ const Rules = () => {
           <li className="lists__item rules__item--action">
             <button
               type="button"
-              className="rules__start-quiz btn btn--contained-primary">
-              <Link
-                to="/quiz/6db2deca-544e-499a-aed8-ffee86a534bb/question"
-                state={{ quizId }}
-                replace>
-                Start Quiz
-              </Link>
+              className="rules__start-quiz btn btn--contained-primary"
+              onClick={() => {
+                navigate(
+                  '/quiz/6db2deca-544e-499a-aed8-ffee86a534bb/question',
+                  { state: { quizId }, replace: true }
+                );
+              }}>
+              Start Quiz
             </button>
           </li>
         </ul>

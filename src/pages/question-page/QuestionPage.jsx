@@ -1,32 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './QuestionPage.css';
-import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useStateContext, useScrollToTop } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
 
 const QuestionPage = () => {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [currentQuestionData, setCurrentQuestionData] = useState({});
   const [selectedOption, setSelectedOption] = useState('');
   const { state, stateDispatch } = useStateContext();
   const location = useLocation();
   const quizId = location?.state?.quizId;
-  const questionId = state?.currentQuiz?.mcqs[questionNumber]._id;
+  // const questionId = state?.currentQuiz?.mcqs[questionNumber]._id;
   const navigate = useNavigate();
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.get(`/api/quizzes/${quizId}/${questionId}`);
-        if (res.status === 200) {
-          setCurrentQuestionData(res.data.question);
-        }
-      } catch (err) {
-        console.error('Error in fetching question', err);
-      }
-    })();
-  }, [questionNumber]);
+  const currentQuestionData = state.currentQuiz.mcqs[questionNumber];
 
   useScrollToTop();
 
