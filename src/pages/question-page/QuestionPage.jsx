@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import './QuestionPage.css';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useStateContext, useScrollToTop } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
+import PropTypes from 'prop-types';
 
-const QuestionPage = () => {
+const QuestionPage = ({ setShowResult }) => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const { state, stateDispatch } = useStateContext();
-  const location = useLocation();
-  const quizId = location?.state?.quizId;
   // const questionId = state?.currentQuiz?.mcqs[questionNumber]._id;
-  const navigate = useNavigate();
-  const currentQuestionData = state.currentQuiz.mcqs[questionNumber];
+  const currentQuestionData = state?.currentQuiz?.mcqs[questionNumber];
 
   useScrollToTop();
 
@@ -49,7 +46,7 @@ const QuestionPage = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    navigate(`/quiz/${quizId}/result`, { replace: true });
+                    setShowResult(true);
                   }}>
                   Submit
                 </button>
@@ -110,6 +107,10 @@ const QuestionPage = () => {
       </main>
     </div>
   );
+};
+
+QuestionPage.propTypes = {
+  setShowResult: PropTypes.func.isRequired
 };
 
 export { QuestionPage };

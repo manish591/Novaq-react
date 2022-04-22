@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { db } from 'firebaseConfig';
 import { getDoc, doc } from 'firebase/firestore';
 import { useStateContext } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
+import { QuestionPage, Result, Rules } from 'pages';
 
 const QuizContainer = () => {
+  const [showQuizPage, setShowQuizPage] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const { quizId } = useParams();
-  const { stateDispatch } = useStateContext();
+  const { stateDispatch, state } = useStateContext();
   const quizColRef = doc(db, 'quizzes', quizId);
 
   useEffect(() => {
@@ -26,7 +29,18 @@ const QuizContainer = () => {
 
   return (
     <div className="quiz-container">
-      <Outlet />
+      {state.currentQuiz === null && <h1>...Loading</h1>}
+      {!showResult && (
+        <div>
+          {showQuizPage && state.currentQuiz ? (
+            <QuestionPage setShowResult={setShowResult} />
+          ) : (
+            <Rules setShowQuizPage={setShowQuizPage} />
+          )}
+        </div>
+      )}
+
+      {showResult && <Result />}
     </div>
   );
 };

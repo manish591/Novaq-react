@@ -6,9 +6,6 @@ import { useScrollToTop } from 'hooks';
 import {
   CategoryPage,
   LandingPage,
-  QuestionPage,
-  Result,
-  Rules,
   QuizContainer,
   Login,
   Signup,
@@ -21,11 +18,7 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/quiz/:quizId" element={<QuizContainer />}>
-          <Route index element={<Rules />} />
-          <Route path="result" element={<Result />} />
-          <Route path="question" element={<QuestionPage />} />
-        </Route>
+        <Route path="/quiz/:quizId" element={<QuizContainer />} />
         <Route path="/category" element={<CategoryPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

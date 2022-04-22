@@ -1,12 +1,10 @@
 import React from 'react';
 import './Rules.css';
-import { useParams, useNavigate } from 'react-router-dom';
 import { useScrollToTop } from 'hooks';
 import { Navbar, Footer } from 'components';
+import PropTypes from 'prop-types';
 
-const Rules = () => {
-  const { quizId } = useParams();
-  const navigate = useNavigate();
+const Rules = ({ setShowQuizPage }) => {
   useScrollToTop();
   return (
     <div>
@@ -57,10 +55,7 @@ const Rules = () => {
               type="button"
               className="rules__start-quiz btn btn--contained-primary"
               onClick={() => {
-                navigate(
-                  '/quiz/6db2deca-544e-499a-aed8-ffee86a534bb/question',
-                  { state: { quizId }, replace: true }
-                );
+                setShowQuizPage(true);
               }}>
               Start Quiz
             </button>
@@ -70,6 +65,10 @@ const Rules = () => {
       <Footer />
     </div>
   );
+};
+
+Rules.propTypes = {
+  setShowQuizPage: PropTypes.func.isRequired
 };
 
 export { Rules };
