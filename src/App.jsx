@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
+import { useScrollToTop } from 'hooks';
 
 import {
   CategoryPage,
@@ -14,21 +15,23 @@ import {
   Profile
 } from 'pages';
 
-const App = () => (
-  <div className="App">
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/quiz/:quizId" element={<QuizContainer />}>
-        <Route index element={<Rules />} />
-        <Route path="result" element={<Result />} />
-        <Route path="question" element={<QuestionPage />} />
-      </Route>
-      <Route path="/category" element={<CategoryPage />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/profile" element={<Profile />} />
-    </Routes>
-  </div>
-);
-
+const App = () => {
+  useScrollToTop();
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/quiz/:quizId" element={<QuizContainer />}>
+          <Route index element={<Rules />} />
+          <Route path="result" element={<Result />} />
+          <Route path="question" element={<QuestionPage />} />
+        </Route>
+        <Route path="/category" element={<CategoryPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+    </div>
+  );
+};
 export default App;

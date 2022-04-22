@@ -1,12 +1,12 @@
 import React from 'react';
 import './Rules.css';
 import { Link, useParams } from 'react-router-dom';
-
+import { useScrollToTop } from 'hooks';
 import { Navbar, Footer } from 'components';
 
 const Rules = () => {
   const { quizId } = useParams();
-
+  useScrollToTop();
   return (
     <div>
       <header className="header grid">

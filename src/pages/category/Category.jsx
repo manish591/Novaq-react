@@ -1,22 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Category.css';
-// import { useLocation } from 'react-router-dom';
-import { Footer, Navbar } from 'components';
+import { db } from 'firebaseConfig';
+import { getDoc, doc } from 'firebase/firestore';
+import { useLocation } from 'react-router-dom';
+import { useScrollToTop } from 'hooks';
+import { Footer, Navbar, QuizCard } from 'components';
 
 const CategoryPage = () => {
-  // const [categoryData, setCategoryData] = useState({});
-  // const location = useLocation();
-  // const categoryId = location?.state?.categoryId;
+  const [categoryData, setCategoryData] = useState({});
+  const location = useLocation();
+  const categoryId = location?.state?.categoryId;
+  const categoryRef = doc(db, 'categories', categoryId);
 
   useEffect(() => {
     (async () => {
       try {
-        // setCategoryData(res.data.category);
+        const res = await getDoc(categoryRef);
+        setCategoryData(res.data());
       } catch (err) {
         console.error('Error in getting quiz for this category', err);
       }
     })();
   }, []);
+
+  useScrollToTop();
 
   return (
     <div>
@@ -27,15 +34,15 @@ const CategoryPage = () => {
         <header className="category-page__header category-header">
           <div className="category-header__wrapper">
             <h2 className="category-header__title">
-              {/* {categoryData?.categoryName} */}
+              {categoryData?.categoryName}
             </h2>
             <p className="category-header__description">
-              {/* {categoryData?.description} */}
+              {categoryData?.description}
             </p>
           </div>
         </header>
         <section className="category-page__list category-list">
-          {/* {categoryData.quizzes && categoryData.quizzes.length < 1 ? (
+          {categoryData.quizzes && categoryData.quizzes.length < 1 ? (
             <div className="category-page__coming-soon">
               <h1>Coming Soon...</h1>
             </div>
@@ -46,7 +53,7 @@ const CategoryPage = () => {
                   return <QuizCard key={item._id} />;
                 })}
             </div>
-          )} */}
+          )}
         </section>
         <section className="category-page__other-quiz category-other">
           <h2 className="category-other__title">Explore Other Categories</h2>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './QuestionPage.css';
 import axios from 'axios';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useStateContext } from 'hooks';
+import { useStateContext, useScrollToTop } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
 
 const QuestionPage = () => {
@@ -27,6 +27,8 @@ const QuestionPage = () => {
       }
     })();
   }, [questionNumber]);
+
+  useScrollToTop();
 
   const calculateScore = (userAnswer, correctAnswer) => {
     return userAnswer === correctAnswer ? 5 : 0;

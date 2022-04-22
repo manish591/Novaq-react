@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { db } from 'firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
 import { ACTION_TYPES } from 'reducer';
-import { useStateContext } from 'hooks';
+import { useStateContext, useScrollToTop } from 'hooks';
 import { Navbar, Footer, QuizCard } from 'components';
 import { HeroSection } from './sub-comp/HeroSection';
 
@@ -17,7 +17,7 @@ const LandingPage = () => {
       try {
         const res = await getDocs(categoriesRef);
         const newCategories = res.docs.map((doc) => {
-          return { ...doc.data() };
+          return { ...doc.data(), _id: doc.id };
         });
         stateDispatch({
           type: ACTION_TYPES.SET_CATEGORIES,
@@ -28,6 +28,8 @@ const LandingPage = () => {
       }
     })();
   }, []);
+
+  useScrollToTop();
 
   return (
     <div className="novaq-wrapper grid">

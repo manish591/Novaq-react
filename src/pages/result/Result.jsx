@@ -1,7 +1,7 @@
 import React from 'react';
 import './Result.css';
 import { Footer, Navbar } from 'components';
-import { useStateContext } from 'hooks';
+import { useStateContext, useScrollToTop } from 'hooks';
 
 const Result = () => {
   const { state } = useStateContext();
@@ -9,6 +9,8 @@ const Result = () => {
   const findMyScore = (arr) => {
     return arr.reduce((acc, curr) => acc + curr.score, 0);
   };
+
+  useScrollToTop();
 
   return (
     <div>
