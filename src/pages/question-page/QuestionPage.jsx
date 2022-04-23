@@ -23,7 +23,7 @@ const QuestionPage = ({ setShowResult }) => {
         <div className="question-main__wrapper grid">
           <section className="question-main__details question-info grid">
             <div className="question-info__top flex">
-              <div>
+              <div className="question-info__questions">
                 <p className="question-info__number">
                   Question {questionNumber + 1} of{' '}
                   {state?.currentQuiz?.totalQuestions}
@@ -37,28 +37,32 @@ const QuestionPage = ({ setShowResult }) => {
               </button>
             </div>
             <div className="refrence">
-              <img
-                src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJlbmNoJTIwZnJpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-                alt=""
-                className="responsive-img"
-              />
-              {questionNumber + 1 >= state?.currentQuiz?.totalQuestions ? (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setShowResult(true);
-                  }}>
-                  Submit
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setQuestionNumber((qn) => qn + 1);
-                  }}>
-                  Save & Next
-                </button>
-              )}
+              <div className="refrence__wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJlbmNoJTIwZnJpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+                  alt=""
+                  className="responsive-img"
+                />
+                {questionNumber + 1 >= state?.currentQuiz?.totalQuestions ? (
+                  <button
+                    type="button"
+                    className="reference__next btn btn--contained-primary"
+                    onClick={() => {
+                      setShowResult(true);
+                    }}>
+                    Submit
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="reference__next btn btn--contained-primary"
+                    onClick={() => {
+                      setQuestionNumber((qn) => qn + 1);
+                    }}>
+                    Save & Next
+                  </button>
+                )}
+              </div>
             </div>
             <div className="question-info__bottom">
               <div className="question-info__options choices">

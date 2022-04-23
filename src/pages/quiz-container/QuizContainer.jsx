@@ -30,7 +30,7 @@ const QuizContainer = () => {
   return (
     <div className="quiz-container">
       {state.currentQuiz === null && <h1>...Loading</h1>}
-      {!showResult && (
+      {!showResult && state.currentQuiz !== null ? (
         <div>
           {showQuizPage && state.currentQuiz ? (
             <QuestionPage setShowResult={setShowResult} />
@@ -38,7 +38,7 @@ const QuizContainer = () => {
             <Rules setShowQuizPage={setShowQuizPage} />
           )}
         </div>
-      )}
+      ) : null}
 
       {showResult && <Result />}
     </div>

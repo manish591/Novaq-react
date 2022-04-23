@@ -10,8 +10,6 @@ const Result = () => {
     return arr.reduce((acc, curr) => acc + curr.score, 0);
   };
 
-  console.log(state?.currentQuiz?.mcqs);
-
   useScrollToTop();
 
   return (
