@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid';
 
 export const quizzes = [
   {
-    _id: uuid(),
+    _id: '6db2deca-544e-499a-aed8-ffee86a534bb',
     title: 'Are You a book Reader? PartI',
     totalScore: 25,
     catergory_name: 'Books',
@@ -71,7 +71,7 @@ export const quizzes = [
     ]
   },
   {
-    _id: uuid(),
+    _id: 'f8bc7e28-da53-469e-98dd-3e0b288021c8',
     title: 'Are You a book Reader? PartII',
     totalScore: 50,
     catergory_name: 'Books',
@@ -165,7 +165,7 @@ export const quizzes = [
     ]
   },
   {
-    _id: uuid(),
+    _id: 'c737ff91-5745-42ba-920e-4a4050ba5b30',
     title: 'Are You a book Reader? PartIII',
     totalScore: 25,
     catergory_name: 'Books',
@@ -223,7 +223,7 @@ export const quizzes = [
     ]
   },
   {
-    _id: uuid(),
+    _id: '5a7ebe32-5196-4a4d-8f05-4ea8ad281bff',
     title: 'Are You a book Reader? PartIV',
     totalScore: 100,
     catergory_name: 'Books',
@@ -231,7 +231,7 @@ export const quizzes = [
     mcqs: []
   },
   {
-    _id: uuid(),
+    _id: 'd1b00287-3a3f-47f1-bf0f-0f03dcd5bb77',
     title: 'Are You a book Reader? PartV',
     totalScore: 95,
     catergory_name: 'Books',
@@ -239,7 +239,7 @@ export const quizzes = [
     mcqs: []
   },
   {
-    _id: uuid(),
+    _id: 'da606624-d7c7-44cb-b3a3-71be81de6e7e',
     title: 'Are You a book Reader? PartIV',
     totalScore: 100,
     catergory_name: 'Books',
@@ -247,7 +247,7 @@ export const quizzes = [
     mcqs: []
   },
   {
-    _id: uuid(),
+    _id: '69fd5f18-9505-44fa-b4d1-ac3355eb0159',
     title: 'Are You a book Reader? PartVI',
     totalScore: 100,
     catergory_name: 'Books',
@@ -255,7 +255,7 @@ export const quizzes = [
     mcqs: []
   },
   {
-    _id: uuid(),
+    _id: 'ce495310-4737-49e6-b4ab-9fdaaaf42f08',
     title: 'Are You a book Reader? PartVII',
     totalScore: 25,
     catergory_name: 'Books',
