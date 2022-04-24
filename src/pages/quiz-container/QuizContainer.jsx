@@ -5,6 +5,7 @@ import { getDoc, doc } from 'firebase/firestore';
 import { useStateContext } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
 import { QuestionPage, Result, Rules } from 'pages';
+import { QuizActions } from 'components';
 
 const QuizContainer = () => {
   const [showQuizPage, setShowQuizPage] = useState(false);
@@ -41,6 +42,7 @@ const QuizContainer = () => {
       ) : null}
 
       {showResult && <Result />}
+      <QuizActions />
     </div>
   );
 };
