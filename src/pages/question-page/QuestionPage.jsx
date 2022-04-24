@@ -8,7 +8,6 @@ const QuestionPage = ({ setShowResult }) => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const { state, stateDispatch } = useStateContext();
-  // const questionId = state?.currentQuiz?.mcqs[questionNumber]._id;
   const currentQuestionData = state?.currentQuiz?.mcqs[questionNumber];
 
   useScrollToTop();
@@ -82,6 +81,8 @@ const QuestionPage = ({ setShowResult }) => {
                               stateDispatch({
                                 type: ACTION_TYPES.SET_ANSWERS,
                                 payload: {
+                                  userAction: 'setting',
+                                  attempted: true,
                                   key: `one${questionNumber}`,
                                   value: item,
                                   score: calculateScore(

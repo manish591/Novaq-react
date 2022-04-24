@@ -12,6 +12,17 @@ const Result = () => {
 
   useScrollToTop();
 
+  const findIsAttempted = (index) => {
+    const optionsSelectedKeys = Object.keys(state.setAnswers);
+    const splitLastPart = optionsSelectedKeys[index]?.slice(
+      optionsSelectedKeys[index].length - 1
+    );
+    if (index === Number(splitLastPart)) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div>
       <header className="header grid">
@@ -28,7 +39,7 @@ const Result = () => {
         </section>
         <section className="result__details grid">
           {state?.currentQuiz?.mcqs &&
-            state?.currentQuiz?.mcqs.map((item) => {
+            state?.currentQuiz?.mcqs.map((item, index) => {
               return (
                 <article key={item._id} className="question-card">
                   <p className="question-card__number">Question One</p>
@@ -47,6 +58,7 @@ const Result = () => {
                       );
                     })}
                   </ul>
+                  <small>{findIsAttempted(index) || 'Not Attempted'}</small>
                 </article>
               );
             })}
