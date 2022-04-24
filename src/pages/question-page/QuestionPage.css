@@ -152,6 +152,16 @@
   background-color: var(--brand);
 }
 
+.question-info__timer {
+  padding-inline: 1rem;
+}
+
+.question-info__timer > meter {
+  inline-size: 100%;
+  block-size: 30px;
+  border: none;
+}
+
 @media (max-width: 299px) {
   .question-action__next {
     block-size: 35px;
@@ -176,7 +186,7 @@
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 900px) {
   .choice__list {
     gap: 1rem;
   }

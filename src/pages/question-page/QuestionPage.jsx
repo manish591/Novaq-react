@@ -99,11 +99,37 @@ const QuestionPage = ({ setShowResult }) => {
                 </ul>
               </div>
               <div className="question-action__wrapper flex">
-                <button
-                  type="button"
-                  className="question-action__next btn btn--contained-primary">
-                  <a href="/pages/result.html">Save & Next</a>
-                </button>
+                {questionNumber + 1 >= state?.currentQuiz?.totalQuestions ? (
+                  <button
+                    type="button"
+                    className="question-action__next btn btn--contained-primary"
+                    onClick={() => {
+                      setShowResult(true);
+                    }}>
+                    Submit
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="question-action__next btn btn--contained-primary"
+                    onClick={() => {
+                      setQuestionNumber((qn) => qn + 1);
+                    }}>
+                    Save & Next
+                  </button>
+                )}
+              </div>
+              <div className="question-info__timer" style={{ display: 'none' }}>
+                <meter
+                  id="fuel"
+                  min="0"
+                  max="100"
+                  low="33"
+                  high="66"
+                  optimum="80"
+                  value="90">
+                  at 50/100
+                </meter>
               </div>
             </div>
           </section>
