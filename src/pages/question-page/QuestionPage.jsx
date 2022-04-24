@@ -24,8 +24,7 @@ const QuestionPage = ({ setShowResult }) => {
             <div className="question-info__top flex">
               <div className="question-info__questions">
                 <p className="question-info__number">
-                  Question {questionNumber + 1} of{' '}
-                  {state?.currentQuiz?.totalQuestions}
+                  {questionNumber + 1} / {state?.currentQuiz?.totalQuestions}
                 </p>
                 <h2 className="question-info__question">
                   {currentQuestionData?.question}

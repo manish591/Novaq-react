@@ -120,6 +120,8 @@
 
 .question-info__questions {
   flex: 1;
+  margin-inline: auto;
+  display: block;
 }
 
 .choices__item > button {
@@ -162,6 +164,12 @@
   border: none;
 }
 
+.question-info__number {
+  font-size: 0.8rem;
+  font-weight: 100;
+  opacity: 0.6;
+}
+
 @media (max-width: 299px) {
   .question-action__next {
     block-size: 35px;
@@ -197,6 +205,14 @@
 
   .question-info__question {
     font-size: 1.8rem;
+    margin-block-start: 0;
+    margin-inline: auto;
+    max-inline-size: 50ch;
+  }
+
+  .question-info__questions {
+    display: flex;
+    align-items: center;
   }
 
   .choices__item > button {
@@ -210,6 +226,10 @@
 
   .reference__next {
     display: block;
+  }
+
+  .question-info__number {
+    font-size: 1.5rem;
   }
 }
 
