@@ -10,6 +10,7 @@ import { QuizActions } from 'components';
 const QuizContainer = () => {
   const [showQuizPage, setShowQuizPage] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [isQuizActionsOpen, setIsQuizActionsOpen] = useState(false);
   const { quizId } = useParams();
   const { stateDispatch, state } = useStateContext();
   const quizColRef = doc(db, 'quizzes', quizId);
@@ -34,7 +35,10 @@ const QuizContainer = () => {
       {!showResult && state.currentQuiz !== null ? (
         <div>
           {showQuizPage && state.currentQuiz ? (
-            <QuestionPage setShowResult={setShowResult} />
+            <QuestionPage
+              setShowResult={setShowResult}
+              setIsQuizActionsOpen={setIsQuizActionsOpen}
+            />
           ) : (
             <Rules setShowQuizPage={setShowQuizPage} />
           )}
@@ -42,7 +46,12 @@ const QuizContainer = () => {
       ) : null}
 
       {showResult && <Result />}
-      <QuizActions />
+      {isQuizActionsOpen && (
+        <QuizActions
+          setIsQuizActionsOpen={setIsQuizActionsOpen}
+          setShowResult={setShowResult}
+        />
+      )}
     </div>
   );
 };

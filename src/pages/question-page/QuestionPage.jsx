@@ -4,7 +4,7 @@ import { useStateContext, useScrollToTop } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
 import PropTypes from 'prop-types';
 
-const QuestionPage = ({ setShowResult }) => {
+const QuestionPage = ({ setShowResult, setIsQuizActionsOpen }) => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const { state, stateDispatch } = useStateContext();
@@ -30,7 +30,12 @@ const QuestionPage = ({ setShowResult }) => {
                   {currentQuestionData?.question}
                 </h2>
               </div>
-              <button type="button" className="question-info__menu">
+              <button
+                type="button"
+                className="question-info__menu"
+                onClick={() => {
+                  setIsQuizActionsOpen(true);
+                }}>
                 <span className="material-icons-outlined">menu</span>
               </button>
             </div>
@@ -140,7 +145,8 @@ const QuestionPage = ({ setShowResult }) => {
 };
 
 QuestionPage.propTypes = {
-  setShowResult: PropTypes.func.isRequired
+  setShowResult: PropTypes.func.isRequired,
+  setIsQuizActionsOpen: PropTypes.func.isRequired
 };
 
 export { QuestionPage };
