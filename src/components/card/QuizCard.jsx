@@ -1,8 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const QuizCard = () => {
   return (
-    <article className="category-list__quiz quiz-card flex">
+    <Link
+      to="/quiz/6db2deca-544e-499a-aed8-ffee86a534bb"
+      className="category-list__quiz quiz-card flex">
       <section className="card card--basic quiz-card__card">
         <div className="card__image-container">
           <img
@@ -21,7 +24,7 @@ const QuizCard = () => {
           <p className="card__info quiz-card__info">10 Questions</p>
         </div>
       </section>
-    </article>
+    </Link>
   );
 };
 

@@ -37,6 +37,10 @@
   letter-spacing: 1.2px;
 }
 
+.navbar__items {
+  cursor: pointer;
+}
+
 .navbar__items--name {
   padding-inline: 1.5rem;
   padding-block: 1.5rem;

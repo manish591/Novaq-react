@@ -1,104 +1,58 @@
 import React from 'react';
 import './Result.css';
 import { Footer, Navbar } from 'components';
+import { useStateContext } from 'hooks';
 
-const Result = () => (
-  <div>
-    <header className="header grid">
-      <Navbar />
-    </header>
-    <div className="result grid">
-      <section className="result__messages">
-        <h1 className="result__title">Result</h1>
-        <h2 className="result__greeting">You Played Better!</h2>
-        <p className="result__score">Score: 5 / 10</p>
-      </section>
-      <section className="result__details grid">
-        <article className="question-card">
-          <p className="question-card__number">Question One</p>
-          <h2 className="question-card__title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque,
-            itaque?
-          </h2>
-          <ul className="question-card__choices-list grid">
-            <li className="question-card__choices">Option One</li>
-            <li className="question-card__choices question-card__choices--right">
-              Option Two
-            </li>
-            <li className="question-card__choices">Option Three</li>
-            <li className="question-card__choices">Option Four</li>
-          </ul>
-        </article>
-        <article className="question-card">
-          <p className="question-card__number">Question Two</p>
-          <h2 className="question-card__title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque a
-            aperiam doloribus est dolorem voluptatem?
-          </h2>
-          <ul className="question-card__choices-list grid">
-            <li className="question-card__choices question-card__choices--wrong">
-              Option One
-            </li>
-            <li className="question-card__choices">Option Two</li>
-            <li className="question-card__choices question-card__choices--right">
-              Option Three
-            </li>
-            <li className="question-card__choices">Option Four</li>
-          </ul>
-        </article>
-        <article className="question-card">
-          <p className="question-card__number">Question Three</p>
-          <h2 className="question-card__title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
-            eveniet minus?
-          </h2>
-          <ul className="question-card__choices-list grid">
-            <li className="question-card__choices">Option One</li>
-            <li className="question-card__choices question-card__choices--right">
-              Option Two
-            </li>
-            <li className="question-card__choices">Option Three</li>
-            <li className="question-card__choices question-card__choices--wrong">
-              Option Four
-            </li>
-          </ul>
-        </article>
-        <article className="question-card">
-          <p className="question-card__number">Question Four</p>
-          <h2 className="question-card__title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit?
-          </h2>
-          <ul className="question-card__choices-list grid">
-            <li className="question-card__choices">Option One</li>
-            <li className="question-card__choices question-card__choices--wrong">
-              Option Two
-            </li>
-            <li className="question-card__choices">Option Three</li>
-            <li className="question-card__choices question-card__choices--right">
-              Option Four
-            </li>
-          </ul>
-        </article>
-        <article className="question-card">
-          <p className="question-card__number">Question Five</p>
-          <h2 className="question-card__title">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-            architecto doloribus ab aspernatur amet deserunt ad accusamus!
-            Labore?
-          </h2>
-          <ul className="question-card__choices-list grid">
-            <li className="question-card__choices question-card__choices--right">
-              Option One
-            </li>
-            <li className="question-card__choices">Option Two</li>
-            <li className="question-card__choices">Option Three</li>
-            <li className="question-card__choices">Option Four</li>
-          </ul>
-        </article>
-      </section>
+const Result = () => {
+  const { state } = useStateContext();
+
+  const findMyScore = (arr) => {
+    return arr.reduce((acc, curr) => acc + curr.score, 0);
+  };
+
+  return (
+    <div>
+      <header className="header grid">
+        <Navbar />
+      </header>
+      <div className="result grid">
+        <section className="result__messages">
+          <h1 className="result__title">Result</h1>
+          <h2 className="result__greeting">You Played Better!</h2>
+          <p className="result__score">
+            Score: {findMyScore(Object.values(state.setAnswers))} /{' '}
+            {state?.currentQuiz?.totalScore}
+          </p>
+        </section>
+        <section className="result__details grid">
+          {state?.currentQuiz?.mcqs &&
+            state?.currentQuiz?.mcqs.map((item) => {
+              return (
+                <article key={item._id} className="question-card">
+                  <p className="question-card__number">Question One</p>
+                  <h2 className="question-card__title">{item.question}</h2>
+                  <ul className="question-card__choices-list grid">
+                    {item.options.map((option) => {
+                      return (
+                        <li
+                          key={option}
+                          className={`question-card__choices ${
+                            item.correct_answer === option &&
+                            'question-card__choices--right'
+                          }`}>
+                          {option}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </article>
+              );
+            })}
+        </section>
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
-);
+  );
+};
 
 export { Result };
