@@ -1,10 +1,13 @@
 import React from 'react';
 import './Rules.css';
-import { useScrollToTop } from 'hooks';
-import { Navbar, Footer } from 'components';
 import PropTypes from 'prop-types';
+import { useScrollToTop, useStateContext } from 'hooks';
+import { ACTION_TYPES } from 'reducer';
+import { Navbar, Footer } from 'components';
 
 const Rules = ({ setShowQuizPage }) => {
+  const { stateDispatch } = useStateContext();
+
   useScrollToTop();
   return (
     <div>
@@ -56,6 +59,10 @@ const Rules = ({ setShowQuizPage }) => {
               className="rules__start-quiz btn btn--contained-primary"
               onClick={() => {
                 setShowQuizPage(true);
+                stateDispatch({
+                  type: ACTION_TYPES.SET_ANSWERS,
+                  payload: { userAction: 'initializing' }
+                });
               }}>
               Start Quiz
             </button>

@@ -1,0 +1,23 @@
+.quiz-actions__wrapper {
+  position: fixed;
+  inline-size: min(60%, 400px);
+  block-size: 100vh;
+  background-color: var(--surface3);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 20%);
+  z-index: 10;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+  padding-block: 1.25rem;
+  padding-inline: 1rem;
+}
+
+.quiz-actions__overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #0627264a;
+  z-index: 5;
+}
+
+.quiz-actions__overlay > p {
+  display: none;
+}

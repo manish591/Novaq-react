@@ -4,11 +4,10 @@ import { useStateContext, useScrollToTop } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
 import PropTypes from 'prop-types';
 
-const QuestionPage = ({ setShowResult }) => {
+const QuestionPage = ({ setShowResult, setIsQuizActionsOpen }) => {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [selectedOption, setSelectedOption] = useState('');
   const { state, stateDispatch } = useStateContext();
-  // const questionId = state?.currentQuiz?.mcqs[questionNumber]._id;
   const currentQuestionData = state?.currentQuiz?.mcqs[questionNumber];
 
   useScrollToTop();
@@ -25,14 +24,18 @@ const QuestionPage = ({ setShowResult }) => {
             <div className="question-info__top flex">
               <div className="question-info__questions">
                 <p className="question-info__number">
-                  Question {questionNumber + 1} of{' '}
-                  {state?.currentQuiz?.totalQuestions}
+                  {questionNumber + 1} / {state?.currentQuiz?.totalQuestions}
                 </p>
                 <h2 className="question-info__question">
                   {currentQuestionData?.question}
                 </h2>
               </div>
-              <button type="button" className="question-info__menu">
+              <button
+                type="button"
+                className="question-info__menu"
+                onClick={() => {
+                  setIsQuizActionsOpen(true);
+                }}>
                 <span className="material-icons-outlined">menu</span>
               </button>
             </div>
@@ -82,6 +85,8 @@ const QuestionPage = ({ setShowResult }) => {
                               stateDispatch({
                                 type: ACTION_TYPES.SET_ANSWERS,
                                 payload: {
+                                  userAction: 'setting',
+                                  attempted: true,
                                   key: `one${questionNumber}`,
                                   value: item,
                                   score: calculateScore(
@@ -140,7 +145,8 @@ const QuestionPage = ({ setShowResult }) => {
 };
 
 QuestionPage.propTypes = {
-  setShowResult: PropTypes.func.isRequired
+  setShowResult: PropTypes.func.isRequired,
+  setIsQuizActionsOpen: PropTypes.func.isRequired
 };
 
 export { QuestionPage };

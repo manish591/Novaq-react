@@ -9,16 +9,19 @@ const stateReducer = (state, action) => {
       return { ...state, currentQuiz: action.payload.quiz };
 
     case ACTION_TYPES.SET_ANSWERS:
-      return {
-        ...state,
-        setAnswers: {
-          ...state.setAnswers,
-          [action.payload.key]: {
-            value: action.payload.value,
-            score: action.payload.score
-          }
-        }
-      };
+      return action.payload.userAction === 'initializing'
+        ? { ...state, setAnswers: {} }
+        : {
+            ...state,
+            setAnswers: {
+              ...state.setAnswers,
+              [action.payload.key]: {
+                attempted: action.payload.attempted,
+                value: action.payload.value,
+                score: action.payload.score
+              }
+            }
+          };
 
     default:
       return state;
