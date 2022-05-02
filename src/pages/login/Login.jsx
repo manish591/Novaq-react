@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
-import { useAuthService } from 'hooks';
+import { useAuthService, useScrollToTop } from 'hooks';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({
@@ -15,6 +15,8 @@ const Login = () => {
     e.preventDefault();
     login(loginData.email, loginData.password);
   };
+
+  useScrollToTop();
 
   return (
     <main className="login">

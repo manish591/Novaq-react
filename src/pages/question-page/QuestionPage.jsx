@@ -1,32 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './QuestionPage.css';
-import axios from 'axios';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useStateContext } from 'hooks';
+import { useStateContext, useScrollToTop } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
+import PropTypes from 'prop-types';
 
-const QuestionPage = () => {
+const QuestionPage = ({ setShowResult }) => {
   const [questionNumber, setQuestionNumber] = useState(0);
-  const [currentQuestionData, setCurrentQuestionData] = useState({});
   const [selectedOption, setSelectedOption] = useState('');
   const { state, stateDispatch } = useStateContext();
-  const location = useLocation();
-  const quizId = location?.state?.quizId;
-  const questionId = state?.currentQuiz?.mcqs[questionNumber]._id;
-  const navigate = useNavigate();
+  // const questionId = state?.currentQuiz?.mcqs[questionNumber]._id;
+  const currentQuestionData = state?.currentQuiz?.mcqs[questionNumber];
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const res = await axios.get(`/api/quizzes/${quizId}/${questionId}`);
-        if (res.status === 200) {
-          setCurrentQuestionData(res.data.question);
-        }
-      } catch (err) {
-        console.error('Error in fetching question', err);
-      }
-    })();
-  }, [questionNumber]);
+  useScrollToTop();
 
   const calculateScore = (userAnswer, correctAnswer) => {
     return userAnswer === correctAnswer ? 5 : 0;
@@ -38,7 +23,7 @@ const QuestionPage = () => {
         <div className="question-main__wrapper grid">
           <section className="question-main__details question-info grid">
             <div className="question-info__top flex">
-              <div>
+              <div className="question-info__questions">
                 <p className="question-info__number">
                   Question {questionNumber + 1} of{' '}
                   {state?.currentQuiz?.totalQuestions}
@@ -52,28 +37,32 @@ const QuestionPage = () => {
               </button>
             </div>
             <div className="refrence">
-              <img
-                src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJlbmNoJTIwZnJpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-                alt=""
-                className="responsive-img"
-              />
-              {questionNumber + 1 >= state?.currentQuiz?.totalQuestions ? (
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigate(`/quiz/${quizId}/result`, { replace: true });
-                  }}>
-                  Submit
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setQuestionNumber((qn) => qn + 1);
-                  }}>
-                  Save & Next
-                </button>
-              )}
+              <div className="refrence__wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJlbmNoJTIwZnJpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
+                  alt=""
+                  className="responsive-img"
+                />
+                {questionNumber + 1 >= state?.currentQuiz?.totalQuestions ? (
+                  <button
+                    type="button"
+                    className="reference__next btn btn--contained-primary"
+                    onClick={() => {
+                      setShowResult(true);
+                    }}>
+                    Submit
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="reference__next btn btn--contained-primary"
+                    onClick={() => {
+                      setQuestionNumber((qn) => qn + 1);
+                    }}>
+                    Save & Next
+                  </button>
+                )}
+              </div>
             </div>
             <div className="question-info__bottom">
               <div className="question-info__options choices">
@@ -110,11 +99,37 @@ const QuestionPage = () => {
                 </ul>
               </div>
               <div className="question-action__wrapper flex">
-                <button
-                  type="button"
-                  className="question-action__next btn btn--contained-primary">
-                  <a href="/pages/result.html">Save & Next</a>
-                </button>
+                {questionNumber + 1 >= state?.currentQuiz?.totalQuestions ? (
+                  <button
+                    type="button"
+                    className="question-action__next btn btn--contained-primary"
+                    onClick={() => {
+                      setShowResult(true);
+                    }}>
+                    Submit
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="question-action__next btn btn--contained-primary"
+                    onClick={() => {
+                      setQuestionNumber((qn) => qn + 1);
+                    }}>
+                    Save & Next
+                  </button>
+                )}
+              </div>
+              <div className="question-info__timer" style={{ display: 'none' }}>
+                <meter
+                  id="fuel"
+                  min="0"
+                  max="100"
+                  low="33"
+                  high="66"
+                  optimum="80"
+                  value="90">
+                  at 50/100
+                </meter>
               </div>
             </div>
           </section>
@@ -122,6 +137,10 @@ const QuestionPage = () => {
       </main>
     </div>
   );
+};
+
+QuestionPage.propTypes = {
+  setShowResult: PropTypes.func.isRequired
 };
 
 export { QuestionPage };

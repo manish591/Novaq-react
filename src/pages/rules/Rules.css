@@ -16,6 +16,7 @@
 .rules__item > span {
   opacity: 0.6;
   color: var(--brand);
+  user-select: none;
 }
 
 .rules__list {

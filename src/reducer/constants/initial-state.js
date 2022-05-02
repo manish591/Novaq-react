@@ -1,6 +1,6 @@
 const initialState = {
   categories: [],
-  currentQuiz: {},
+  currentQuiz: null,
   setAnswers: {}
 };
 

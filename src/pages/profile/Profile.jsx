@@ -1,8 +1,9 @@
 import React from 'react';
-import { useAuthService } from 'hooks';
+import { useAuthService, useScrollToTop } from 'hooks';
 
 const Profile = () => {
   const { logout } = useAuthService();
+  useScrollToTop();
   return (
     <div className="profile">
       <h1>Name: Manish</h1>

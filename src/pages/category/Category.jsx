@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import './Category.css';
-import axios from 'axios';
+import { db } from 'firebaseConfig';
+import { getDoc, doc } from 'firebase/firestore';
 import { useLocation } from 'react-router-dom';
+import { useScrollToTop } from 'hooks';
 import { Footer, Navbar, QuizCard } from 'components';
 
 const CategoryPage = () => {
   const [categoryData, setCategoryData] = useState({});
   const location = useLocation();
   const categoryId = location?.state?.categoryId;
+  const categoryRef = doc(db, 'categories', categoryId);
 
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get(`/api/categories/${categoryId}`);
-        if (res.status === 200) {
-          setCategoryData(res.data.category);
-        }
+        const res = await getDoc(categoryRef);
+        setCategoryData(res.data());
       } catch (err) {
         console.error('Error in getting quiz for this category', err);
       }
     })();
   }, []);
+
+  useScrollToTop();
 
   return (
     <div>
