@@ -1,31 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const QuizCard = () => {
+const QuizCard = ({ _id, categoryName, title, totalQuestion, image }) => {
   return (
-    <Link
-      to="/quiz/6db2deca-544e-499a-aed8-ffee86a534bb"
-      className="category-list__quiz quiz-card flex">
+    <Link to={`/quiz/${_id}`} className="category-list__quiz quiz-card flex">
       <section className="card card--basic quiz-card__card">
         <div className="card__image-container">
-          <img
-            src="https://images.unsplash.com/photo-1504387828636-abeb50778c0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvb2tpbmd8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-            alt="group"
-            className="card__image"
-          />
+          <img src={image} alt="group" className="card__image" />
         </div>
         <div className="card__content quiz-card__content">
-          <h3 className="card__title quiz-card__title">
-            Do You know these cooking jargons?
-          </h3>
+          <h3 className="card__title quiz-card__title">{title}</h3>
           <p className="card__author quiz-card__subtitle">
             Take this quiz to test yourself
           </p>
-          <p className="card__info quiz-card__info">10 Questions</p>
+          <p className="card__info quiz-card__info">
+            {totalQuestion} Questions
+          </p>
+          <p>{categoryName}</p>
         </div>
       </section>
     </Link>
   );
+};
+
+QuizCard.propTypes = {
+  _id: PropTypes.string.isRequired,
+  categoryName: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  totalQuestion: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 };
 
 export { QuizCard };

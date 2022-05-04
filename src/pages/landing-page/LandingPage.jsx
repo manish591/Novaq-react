@@ -46,8 +46,14 @@ const LandingPage = () => {
                 return (
                   <article
                     key={item._id}
-                    className="featured-category__category flex category">
-                    <div>
+                    className="featured-category__category flex category"
+                    style={{
+                      backgroundImage: `url(${item.img})`,
+                      backgroundRepeat: 'no-repeat',
+                      backgroundSize: 'cover'
+                    }}>
+                    <div className="featured-category__backdrop">&nbsp;</div>
+                    <div className="category__content">
                       <h2 className="category__title">
                         {item.categoryName} Quiz
                       </h2>
@@ -65,7 +71,13 @@ const LandingPage = () => {
           <section className="main__bottom popular">
             <h1 className="popular__title">Popular Quizzes</h1>
             <div className="popular__container grid">
-              <QuizCard />
+              <QuizCard
+                _id="6db2deca-544e-499a-aed8-ffee86a534bb"
+                categoryName="Books"
+                totalQuestion="5"
+                title="Are you a books lover? Part I"
+                image="https://res.cloudinary.com/dcugqfvvg/image/upload/v1651666063/image_43_z4b5j8.webp"
+              />
             </div>
           </section>
         </div>

@@ -7,9 +7,7 @@ const HeroSection = () => {
     <section className="hero">
       <div className="hero__wrapper flex">
         <section className="hero__description flex">
-          <h2 className="hero__heading">
-            Are you a food Lover? Check this by attempting this quiz.
-          </h2>
+          <h2 className="hero__heading">Getting Bored? Try these quizzes.</h2>
           <p className="hero__text">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt,
             beatae dolorem. Ipsa reprehenderit temporibus deserunt suscipit quis
@@ -18,7 +16,7 @@ const HeroSection = () => {
           <button
             type="button"
             className="hero__action btn btn--contained-warning">
-            <Link to="/login">Explore</Link>
+            <Link to="/login">Get Started</Link>
           </button>
         </section>
         <section className="hero__image-container">
