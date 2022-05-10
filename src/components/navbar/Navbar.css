@@ -2,6 +2,8 @@
   background-color: var(--surface2);
   min-block-size: 4rem;
   border-block-end: 1px solid var(--surface4);
+  position: sticky;
+  inset-block-start: 0;
 }
 
 .navbar__wrapper {
