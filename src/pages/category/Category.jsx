@@ -50,7 +50,16 @@ const CategoryPage = () => {
             <div className="category-list__wrapper grid">
               {categoryData.quizzes &&
                 categoryData?.quizzes.map((item) => {
-                  return <QuizCard key={item._id} />;
+                  return (
+                    <QuizCard
+                      key={item._id}
+                      _id={item._id}
+                      totalQuestion={item.totalQuestion}
+                      categoryName={item.categoryName}
+                      title={item.title}
+                      image={item.image}
+                    />
+                  );
                 })}
             </div>
           )}
