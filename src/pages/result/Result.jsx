@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Result.css';
 import { Footer, Navbar } from 'components';
 import { useStateContext, useScrollToTop } from 'hooks';
+import { db } from 'firebaseConfig';
+import { updateDoc, doc } from 'firebase/firestore';
 
 const Result = () => {
   const { state } = useStateContext();
+  const useRefID = JSON.parse(localStorage.getItem('userref'));
+  const userRefrence = doc(db, 'users', useRefID);
 
   const findMyScore = (arr) => {
     return arr.reduce((acc, curr) => acc + curr.score, 0);
   };
 
   useScrollToTop();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await updateDoc(userRefrence, {
+          score: findMyScore(Object.values(state.setAnswers))
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    })();
+  }, []);
 
   const findIsAttempted = (index) => {
     const optionsSelectedKeys = Object.keys(state.setAnswers);

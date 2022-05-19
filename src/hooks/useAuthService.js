@@ -31,7 +31,9 @@ const useAuthService = () => {
           email,
           password,
           createdAt: '',
-          updatedAt: ''
+          updatedAt: '',
+          score: 0,
+          userID: uid
         });
       }
     } catch (err) {

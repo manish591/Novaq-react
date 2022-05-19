@@ -7,3 +7,4 @@ export { QuizContainer } from './quiz-container/QuizContainer';
 export { Login } from './login/Login';
 export { Signup } from './signup/Singup';
 export { Profile } from './profile/Profile';
+export { Dashboard } from './dashboard/Dashboard';

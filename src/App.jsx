@@ -9,7 +9,8 @@ import {
   QuizContainer,
   Login,
   Signup,
-  Profile
+  Profile,
+  Dashboard
 } from 'pages';
 
 import { ProtectedRoute } from 'components';
@@ -29,6 +30,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
             </ProtectedRoute>
           }
         />

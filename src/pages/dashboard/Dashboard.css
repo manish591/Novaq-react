@@ -1,0 +1,4 @@
+.dashboard__wrapper {
+  inline-size: min(90%, 1000px);
+  margin-inline: auto;
+}
