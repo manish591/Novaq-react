@@ -1,0 +1,30 @@
+.profile__wrapper {
+  inline-size: min(90%, 1000px);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block-start: 5rem;
+}
+
+.profile__content {
+  background-color: var(--light-clr);
+  padding-block: 1rem;
+  padding-inline: 0.5rem;
+  box-shadow: 0px 0.5px 2.7px rgba(0, 0, 0, 0.025),
+    0px 1.3px 6.9px rgba(0, 0, 0, 0.035), 0px 2.7px 14.2px rgba(0, 0, 0, 0.045),
+    0px 5.5px 29.2px rgba(0, 0, 0, 0.055), 0px 15px 80px rgba(0, 0, 0, 0.08);
+}
+
+.profile__logout {
+  margin-block-start: 1rem;
+}
+
+.profile__details {
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile__details > p {
+  font-size: 1.25rem;
+}
