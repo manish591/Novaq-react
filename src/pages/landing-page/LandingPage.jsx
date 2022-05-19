@@ -39,7 +39,7 @@ const LandingPage = () => {
       </header>
       <main className="main">
         <div className="main__wrapper">
-          <section className="main__featured featured-category">
+          <section className="main__featured featured-category" id="categories">
             <h1 className="featured-category__title">Featured Category</h1>
             <div className="featured-category__container grid">
               {state?.categories.map((item) => {
