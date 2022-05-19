@@ -12,6 +12,8 @@ import {
   Profile
 } from 'pages';
 
+import { ProtectedRoute } from 'components';
+
 const App = () => {
   useScrollToTop();
   return (
@@ -22,7 +24,14 @@ const App = () => {
         <Route path="/category" element={<CategoryPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
