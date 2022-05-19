@@ -25,13 +25,21 @@ const Navbar = () => (
       </ul>
       <ul className="navbar__list navbar__list--icons flex">
         <li className="navbar__items">
-          <span className="material-icons-round material-black">home</span>
+          <Link to="/">
+            <span className="material-icons-round material-black">home</span>
+          </Link>
         </li>
         <li className="navbar__items">
-          <span className="material-icons-round material-black">dashboard</span>
+          <Link to="/dashboard">
+            <span className="material-icons-round material-black">
+              dashboard
+            </span>
+          </Link>
         </li>
         <li className="navbar__items">
-          <span className="material-icons-round material-black">person</span>
+          <Link to="/profile">
+            <span className="material-icons-round material-black">person</span>
+          </Link>
         </li>
       </ul>
       <ul className="navbar__list navbar__list flex">
