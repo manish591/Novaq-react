@@ -21,7 +21,7 @@ const Rules = ({ setShowQuizPage }) => {
           </li>
           <li className="lists__item rules__item flex">
             <span className="material-icons-round">double_arrow</span>
-            <p>You will be awarded 10 Points for right answer.</p>
+            <p>You will be awarded 5 Points for right answer.</p>
           </li>
           <li className="lists__item rules__item flex">
             <span className="material-icons-round">double_arrow</span>
@@ -36,11 +36,14 @@ const Rules = ({ setShowQuizPage }) => {
           </li>
           <li className="lists__item rules__item flex">
             <span className="material-icons-round">double_arrow</span>
-            <p>Lorem ipsum dolor sit.</p>
+            <p>Attempting every question is not cumpulsory.</p>
           </li>
           <li className="lists__item rules__item flex">
             <span className="material-icons-round">double_arrow</span>
-            <p>Lorem ipsum dolor sit amet consectetur.</p>
+            <p>
+              There is no negative marking for the wrong answer and you will be
+              given 0 points.
+            </p>
           </li>
           <li className="lists__item rules__item flex">
             <span className="material-icons-round">double_arrow</span>
