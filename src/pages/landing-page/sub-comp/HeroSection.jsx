@@ -1,23 +1,37 @@
 import React from 'react';
 import './HeroSection.css';
 import { Link } from 'react-router-dom';
+import { useAuthContext } from 'hooks';
 
 const HeroSection = () => {
+  const { token } = useAuthContext();
   return (
     <section className="hero">
       <div className="hero__wrapper flex">
         <section className="hero__description flex">
           <h2 className="hero__heading">Getting Bored? Try these quizzes.</h2>
           <p className="hero__text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt,
-            beatae dolorem. Ipsa reprehenderit temporibus deserunt suscipit quis
-            aspernatur libero vel?
+            A quiz app lets you experience different kinds of entertainment. You
+            can enjoy a new way to spend your time. You do not need to sign up
+            an account or provide any personal information - just start playing!
           </p>
-          <button
-            type="button"
-            className="hero__action btn btn--contained-warning">
-            <Link to="/login">Get Started</Link>
-          </button>
+          {token ? (
+            <a href="#categories">
+              <button
+                type="button"
+                className="hero__action btn btn--contained-warning">
+                View Categories
+              </button>
+            </a>
+          ) : (
+            <Link to="/login">
+              <button
+                type="button"
+                className="hero__action btn btn--contained-warning">
+                Get Started
+              </button>
+            </Link>
+          )}
         </section>
         <section className="hero__image-container">
           <img

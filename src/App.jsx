@@ -9,8 +9,11 @@ import {
   QuizContainer,
   Login,
   Signup,
-  Profile
+  Profile,
+  Dashboard
 } from 'pages';
+
+import { ProtectedRoute } from 'components';
 
 const App = () => {
   useScrollToTop();
@@ -22,7 +25,22 @@ const App = () => {
         <Route path="/category" element={<CategoryPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

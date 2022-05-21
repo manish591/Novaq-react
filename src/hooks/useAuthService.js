@@ -6,12 +6,14 @@ import {
   signOut
 } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from './useAuthContext';
 
 const useAuthService = () => {
   const auth = getAuth(app);
-  const { setToken, setUserID } = useAuthContext();
+  const { setToken, setUserID, setCurrentUser } = useAuthContext();
   const userColRef = collection(db, 'users');
+  const navigate = useNavigate();
 
   const signup = async (email, password) => {
     try {
@@ -20,14 +22,18 @@ const useAuthService = () => {
         const { uid, accessToken } = res.user;
         setToken(accessToken);
         setUserID(uid);
-        localStorage.setItem('token', accessToken);
-        localStorage.setItem('userID', uid);
+        setCurrentUser(email);
+        localStorage.setItem('token', JSON.stringify(accessToken));
+        localStorage.setItem('userID', JSON.stringify(uid));
+        localStorage.setItem('user', JSON.stringify(email));
         await addDoc(userColRef, {
           name: 'Manish',
           email,
           password,
           createdAt: '',
-          updatedAt: ''
+          updatedAt: '',
+          score: 0,
+          userID: uid
         });
       }
     } catch (err) {
@@ -41,8 +47,11 @@ const useAuthService = () => {
       const { uid, accessToken } = res.user;
       setToken(accessToken);
       setUserID(uid);
-      localStorage.setItem('token', accessToken);
-      localStorage.setItem('userID', uid);
+      setCurrentUser(email);
+      localStorage.setItem('token', JSON.stringify(accessToken));
+      localStorage.setItem('userID', JSON.stringify(uid));
+      localStorage.setItem('user', JSON.stringify(email));
+      navigate('/');
     } catch (err) {
       console.error('Error while loggin in', err);
     }
@@ -53,8 +62,11 @@ const useAuthService = () => {
       await signOut(auth);
       setToken('');
       setUserID('');
-      localStorage.setItem('token', '');
-      localStorage.setItem('userID', '');
+      setCurrentUser('');
+      localStorage.setItem('token', JSON.stringify(''));
+      localStorage.setItem('user', JSON.stringify(''));
+      localStorage.setItem('userID', JSON.stringify(''));
+      navigate('/');
     } catch (err) {
       console.error('Error while logging out', err);
     }

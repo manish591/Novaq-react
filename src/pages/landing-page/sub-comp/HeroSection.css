@@ -104,6 +104,7 @@
 
   .hero__heading {
     max-inline-size: unset;
+    margin-inline: unset;
   }
 
   .hero__image-container {
