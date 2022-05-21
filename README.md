@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Novaq Quiz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+Novaq is a quiz web app that lets you experience different kinds of entertainment. You can enjoy a new way to spend your time. You do not need to sign up an account or provide any personal information - just start playing!
 
-In the project directory, you can run:
+Check out this amazing app today
 
-### `npm start`
+## Features Available
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Home Page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  - Landing page containes following:
+    1. Get Started button, user will be asked to login, once login you will able to see view category button
+    2. Featured quizzes, you can see some of most popular quizzes
+    3. Categories, If you click on one of the categories than you will see multiple quiz based on that category
 
-### `npm test`
+- Categories
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - Play quizzes based on categories
+  - View quizzes based on categoires
 
-### `npm run build`
+- Rules
+  - View the rules of the quiz before starting any quiz
+- Quiz
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  - You can see quiz question, question refrence, multiple options
+  - You can skip the question
+  - Quit quiz in the middle
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Result Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - You can see answers to all the question.
+  - Your score
 
-### `npm run eject`
+- Authentication
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  - Login
+  - Signup
+  - Logout
+  - Authentication is done using firebase
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Leaderboard
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  - You can see your rank in the leaderboard
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- My Profile
+  - You can see your account details here
 
-## Learn More
+## Features Coming soon
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Create Quiz
+- Multiplayer quiz
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Getting Started
 
-### Code Splitting
+- Clone the repository on your local machine with the command below in your terminal, and cd into the novee-app folder
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+      git clone https://github.com/manish591/Foodio.git
 
-### Analyzing the Bundle Size
+      cd Foodio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Install dependencies using npm or yarn
 
-### Making a Progressive Web App
+      npm install
+      or
+      yarn add
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- reate a `.env` file at the root level of the directory, and connect your app to firebase and the following firebase secret keys in your env file
 
-### Advanced Configuration
+      REACT_APP_API_KEY=< your firebase api key >
+      REACT_APP_AUTH_DOMAIN=< your firebase auth domain >
+      REACT_APP_PROJECT_ID=< your project id >
+      REACT_APP_STORAGE_BUCKET=< your storage bucket >
+      REACT_APP_MESSENGING_SENDER_ID=< your sender id >
+      REACT_APP_APP_ID=< your app id >
+      REACT_APP_MEASURMENT_ID=< yout measurment id >
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Start your dev server
 
-### Deployment
+      npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Connect With Me
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Twitter](https://twitter.com/manishdevrani77)
+- [Github](https://github.com/manish591)
