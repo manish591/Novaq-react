@@ -7,6 +7,13 @@
   gap: 4rem;
 }
 
+.category-page-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 100vh;
+}
+
 /* --------------- */
 /* category-header */
 /* --------------- */
@@ -112,6 +119,14 @@
   align-items: center;
   justify-content: center;
   padding-block: 3rem;
+}
+
+.category-page__empty {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 5rem;
 }
 
 @media (min-width: 600px) {
