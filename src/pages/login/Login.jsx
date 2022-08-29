@@ -31,6 +31,14 @@ const Login = () => {
     }
   };
 
+  const handleGuestLogin = () => {
+    setLoginData({
+      email: 'manishdevrani777@gmail.com',
+      password: '123456789'
+    });
+    login('manishdevrani777@gmail.com', '123456789');
+  };
+
   useScrollToTop();
 
   return (
@@ -105,6 +113,15 @@ const Login = () => {
           <p>Don&apos;t Have an account? </p>
           <button type="button" className="login__signup">
             <Link to="/signup">Sign Up</Link>
+          </button>
+        </div>
+        <div className="guest-login">
+          <p>or</p>
+          <button
+            type="button"
+            className="guest-login__btn"
+            onClick={handleGuestLogin}>
+            Guest Login
           </button>
         </div>
       </div>
