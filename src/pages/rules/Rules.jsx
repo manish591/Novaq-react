@@ -10,10 +10,8 @@ const Rules = ({ setShowQuizPage }) => {
 
   useScrollToTop();
   return (
-    <div>
-      <header className="header grid">
-        <Navbar />
-      </header>
+    <div className="rules-container">
+      <Navbar />
       <main className="rules">
         <ul className="lists rules__list">
           <li className="lists__item lists__heading">

@@ -5,6 +5,13 @@
   box-shadow: 2px 3px 6px rgba(0, 0, 0, 20%);
 }
 
+.rules-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-height: 100vh;
+}
+
 .rules__heading {
   font-size: 1.8rem;
 }
