@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthService, useScrollToTop } from 'hooks';
 
 const Login = () => {
@@ -10,10 +10,16 @@ const Login = () => {
   });
 
   const { login } = useAuthService();
+  const navigate = useNavigate();
 
-  const handleUserLogin = (e) => {
+  const handleUserLogin = async (e) => {
     e.preventDefault();
-    login(loginData.email, loginData.password);
+    try {
+      await login(loginData.email, loginData.password);
+      navigate('/home');
+    } catch (err) {
+      navigate('/signup');
+    }
   };
 
   useScrollToTop();
