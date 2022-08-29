@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuthService } from 'hooks';
 
 const Signup = () => {
@@ -12,10 +12,12 @@ const Signup = () => {
   });
 
   const { signup } = useAuthService();
+  const navigate = useNavigate();
 
   const handleUserSignup = (e) => {
     e.preventDefault();
     signup(userSignupData.email, userSignupData.password);
+    navigate('/home');
   };
 
   return (
@@ -105,7 +107,7 @@ const Signup = () => {
         <div className="signup__footer">
           <p>Already have an account?</p>
           <button type="button" className="signup__signup">
-            <Link to="/login">Login</Link>
+            <Link to="/">Login</Link>
           </button>
         </div>
       </div>

@@ -1,12 +1,11 @@
 .login {
   inline-size: 90%;
   max-inline-size: 400px;
-  background-color: #f2ede4;
+  background-color: var(--surface3);
   margin-block: 7rem;
   margin-inline: auto;
   padding-block: 1.5rem;
   padding-inline: 0;
-  box-shadow: 3px 5px 8px 1px rgba(192, 192, 192, 0.787);
 }
 
 .wrapper {
@@ -39,7 +38,6 @@
   border: 1px solid rgba(0, 0, 0, 0.349);
   border-radius: 5px;
   font-size: 0.8rem;
-  margin-block-end: 1rem;
 }
 
 label {
@@ -80,10 +78,10 @@ label {
 
 .login__submit {
   inline-size: 100%;
-  padding-block: 1rem;
+  padding-block: 0.8rem;
   font-weight: 700;
   border: none;
-  background: #d9843b;
+  background: var(--brand);
   border-radius: 3px;
   color: white;
 }
@@ -95,6 +93,27 @@ label {
 .login__footer p {
   font-size: 0.6rem;
   margin-inline-end: 5px;
+}
+
+.error-state {
+  font-size: 0.8rem;
+  color: red;
+  margin-block-start: 0.2rem;
+}
+
+.password-toggle {
+  position: relative;
+}
+
+.password-toggle__icon {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: 5px;
+  transform: translateY(-40%);
+}
+
+.password-toggle__icon > span {
+  font-size: 1.2rem;
 }
 
 /* ------------- */
