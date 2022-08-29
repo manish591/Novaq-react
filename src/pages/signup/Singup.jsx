@@ -4,11 +4,16 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthService } from 'hooks';
 
 const Signup = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [userSignupData, setUserSignupData] = useState({
-    name: '',
+    fullName: '',
     email: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
+  });
+  const [signupErrorData, setSignupErrorData] = useState({
+    fullNameError: '',
+    emailError: '',
+    passwordError: ''
   });
 
   const { signup } = useAuthService();
@@ -20,6 +25,19 @@ const Signup = () => {
     navigate('/home');
   };
 
+  const handleValidateUser = (e) => {
+    const { name, validationMessage } = e.target;
+    const isValid = e.target.validity.valid;
+    if (isValid) {
+      setSignupErrorData({ ...signupErrorData, [`${name}Error`]: '' });
+    } else {
+      setSignupErrorData({
+        ...signupErrorData,
+        [`${name}Error`]: validationMessage
+      });
+    }
+  };
+
   return (
     <main className="signup">
       <div className="wrapper">
@@ -29,22 +47,26 @@ const Signup = () => {
         </div>
         <form className="signup__form" onSubmit={handleUserSignup}>
           <section className="name-container">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="fullName">Full Name</label>
             <input
               type="text"
-              id="name"
-              name="name"
+              id="fullName"
+              name="fullName"
               className="signup__name"
               autoComplete="name"
-              value={userSignupData.name}
+              value={userSignupData.fullName}
               onChange={(e) =>
                 setUserSignupData({
                   ...userSignupData,
-                  name: e.target.value
+                  fullName: e.target.value
                 })
               }
+              onBlur={handleValidateUser}
               required
             />
+            <p className="login-form__error error-state">
+              {signupErrorData.fullNameError}
+            </p>
           </section>
           <section className="email-container">
             <label htmlFor="email">Email</label>
@@ -61,42 +83,50 @@ const Signup = () => {
                   email: e.target.value
                 })
               }
+              onBlur={handleValidateUser}
               required
             />
+            <p className="login-form__error error-state">
+              {signupErrorData.emailError}
+            </p>
           </section>
           <section className="password-container">
             <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="new-password"
-              className="signup__password"
-              value={userSignupData.password}
-              onChange={(e) =>
-                setUserSignupData({
-                  ...userSignupData,
-                  password: e.target.value
-                })
-              }
-              required
-            />
-          </section>
-          <section className="password-container">
-            <label htmlFor="confirm-password">Confirm Password</label>
-            <input
-              type="password"
-              id="confirm-password"
-              name="new-password"
-              className="signup__password"
-              value={userSignupData.confirmPassword}
-              onChange={(e) =>
-                setUserSignupData({
-                  ...userSignupData,
-                  confirmPassword: e.target.value
-                })
-              }
-              required
-            />
+            <section className="password-toggle">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                className="signup__password"
+                minLength={8}
+                value={userSignupData.password}
+                onChange={(e) =>
+                  setUserSignupData({
+                    ...userSignupData,
+                    password: e.target.value
+                  })
+                }
+                onBlur={handleValidateUser}
+                required
+              />
+              <button
+                type="button"
+                className="password-toggle__icon"
+                onClick={() => {
+                  setShowPassword((sp) => !sp);
+                }}>
+                {showPassword ? (
+                  <span className="material-icons-outlined">
+                    visibility_off
+                  </span>
+                ) : (
+                  <span className="material-icons-outlined">visibility</span>
+                )}
+              </button>
+            </section>
+            <p className="login-form__error error-state">
+              {signupErrorData.passwordError}
+            </p>
           </section>
           <section className="submit-btn">
             <button type="submit" className="signup__submit">
