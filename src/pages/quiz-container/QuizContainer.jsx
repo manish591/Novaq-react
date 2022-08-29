@@ -6,6 +6,7 @@ import { useAuthContext, useStateContext } from 'hooks';
 import { ACTION_TYPES } from 'reducer';
 import { QuestionPage, Result, Rules } from 'pages';
 import { QuizActions } from 'components';
+import { toast } from 'react-hot-toast';
 
 const QuizContainer = () => {
   const [showQuizPage, setShowQuizPage] = useState(false);
@@ -28,7 +29,7 @@ const QuizContainer = () => {
           payload: { quiz: { ...res.data(), _id: res.id } }
         });
       } catch (err) {
-        console.error(err);
+        toast.error('Error Occured');
       }
     })();
   }, []);
@@ -45,7 +46,7 @@ const QuizContainer = () => {
         });
         localStorage.setItem('userref', JSON.stringify(currentUser.id));
       } catch (err) {
-        console.error(err);
+        toast.error('Error Occured');
       }
     })();
   }, []);

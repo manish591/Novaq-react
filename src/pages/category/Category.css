@@ -65,7 +65,7 @@
 
 .quiz-card__title {
   line-height: 1.1;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .quiz-card__subtitle {
@@ -80,6 +80,10 @@
 /* ---------------- */
 /* Other categories */
 /* ---------------- */
+
+.quiz-card {
+  background-color: var(--surface3);
+}
 
 .category-other__title {
   text-align: center;

@@ -5,6 +5,7 @@
 .main__wrapper {
   inline-size: min(90%, 1000px);
   margin-inline: auto;
+  margin-block: 5rem;
 }
 
 /* ----------------- */

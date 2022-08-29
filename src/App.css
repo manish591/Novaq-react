@@ -27,8 +27,7 @@ html {
 }
 
 .novaq-wrapper {
-  grid-template-columns: 1fr;
-  gap: 7rem;
+  grid-template-columns: minmax(0, 1fr);
 }
 
 body {

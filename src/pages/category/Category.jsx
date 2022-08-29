@@ -5,6 +5,7 @@ import { getDoc, doc } from 'firebase/firestore';
 import { useLocation } from 'react-router-dom';
 import { useScrollToTop } from 'hooks';
 import { Footer, Navbar, QuizCard } from 'components';
+import { toast } from 'react-hot-toast';
 
 const CategoryPage = () => {
   const [categoryData, setCategoryData] = useState({});
@@ -18,7 +19,7 @@ const CategoryPage = () => {
         const res = await getDoc(categoryRef);
         setCategoryData(res.data());
       } catch (err) {
-        console.error('Error in getting quiz for this category', err);
+        toast.error('Error Occured');
       }
     })();
   }, []);
@@ -63,19 +64,6 @@ const CategoryPage = () => {
                 })}
             </div>
           )}
-        </section>
-        <section className="category-page__other-quiz category-other">
-          <h2 className="category-other__title">Explore Other Categories</h2>
-          <div className="category-other__wrapper grid">
-            <section className="category-other__container flex">
-              <h2>Category One</h2>
-              <button type="button">View</button>
-            </section>
-            <section className="category-other__container flex">
-              <h2>Category One</h2>
-              <button type="button">View</button>
-            </section>
-          </div>
         </section>
       </main>
       <Footer />

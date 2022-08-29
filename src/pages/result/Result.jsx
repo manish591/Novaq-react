@@ -4,15 +4,16 @@ import { Footer, Navbar } from 'components';
 import { useStateContext, useScrollToTop } from 'hooks';
 import { db } from 'firebaseConfig';
 import { updateDoc, doc } from 'firebase/firestore';
+import { toast } from 'react-hot-toast';
+
+const findMyScore = (arr) => {
+  return arr.reduce((acc, curr) => acc + curr.score, 0);
+};
 
 const Result = () => {
   const { state } = useStateContext();
   const useRefID = JSON.parse(localStorage.getItem('userref'));
   const userRefrence = doc(db, 'users', useRefID);
-
-  const findMyScore = (arr) => {
-    return arr.reduce((acc, curr) => acc + curr.score, 0);
-  };
 
   useScrollToTop();
 
@@ -23,7 +24,7 @@ const Result = () => {
           score: findMyScore(Object.values(state.setAnswers))
         });
       } catch (err) {
-        console.error(err);
+        toast.error('Error occured');
       }
     })();
   }, []);
