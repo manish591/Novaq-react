@@ -39,7 +39,7 @@ const Signup = () => {
   };
 
   return (
-    <main className="signup">
+    <main className="signup main-shadow">
       <div className="wrapper">
         <div className="signup__header">
           <h1 className="signup__title">Sign Up</h1>

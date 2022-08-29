@@ -84,6 +84,7 @@ label {
   background: var(--brand);
   border-radius: 3px;
   color: white;
+  cursor: pointer;
 }
 
 .login__footer {
