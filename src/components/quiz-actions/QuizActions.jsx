@@ -1,8 +1,10 @@
 import React from 'react';
 import './QuizActions.css';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
-const QuizActions = ({ setIsQuizActionsOpen, setShowResult }) => {
+const QuizActions = ({ setIsQuizActionsOpen }) => {
+  const navigate = useNavigate();
   return (
     <div className="quiz-actions">
       <button
@@ -18,7 +20,7 @@ const QuizActions = ({ setIsQuizActionsOpen, setShowResult }) => {
           type="button"
           className="btn btn--outlined-secondary"
           onClick={() => {
-            setShowResult(true);
+            navigate('/home');
             setIsQuizActionsOpen(false);
           }}>
           Quit Quiz
@@ -29,8 +31,7 @@ const QuizActions = ({ setIsQuizActionsOpen, setShowResult }) => {
 };
 
 QuizActions.propTypes = {
-  setIsQuizActionsOpen: PropTypes.func.isRequired,
-  setShowResult: PropTypes.func.isRequired
+  setIsQuizActionsOpen: PropTypes.func.isRequired
 };
 
 export { QuizActions };

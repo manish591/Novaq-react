@@ -69,10 +69,7 @@ const QuizContainer = () => {
 
       {showResult && <Result />}
       {isQuizActionsOpen && (
-        <QuizActions
-          setIsQuizActionsOpen={setIsQuizActionsOpen}
-          setShowResult={setShowResult}
-        />
+        <QuizActions setIsQuizActionsOpen={setIsQuizActionsOpen} />
       )}
     </div>
   );
