@@ -19,7 +19,7 @@ const HeroSection = () => {
             <a href="#categories">
               <button
                 type="button"
-                className="hero__action btn btn--contained-warning">
+                className="hero__action btn btn--contained-primary">
                 View Categories
               </button>
             </a>

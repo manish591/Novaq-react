@@ -67,6 +67,11 @@
   padding-block-start: 0.8rem;
 }
 
+.question-attempted {
+  transform: scale(1.05);
+  transform-origin: center;
+}
+
 @media (min-width: 600px) {
   .question-card__choices-list {
     grid-template-columns: repeat(2, 1fr);

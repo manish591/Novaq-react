@@ -45,11 +45,7 @@
             }
         ],
         "no-console": [
-            "warn",
-            { "allow": [
-                    "error"
-                ]
-            }
+            "warn"
         ],
         "prettier/prettier": [
             "error",

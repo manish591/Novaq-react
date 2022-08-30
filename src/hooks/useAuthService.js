@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut
 } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 import { addDoc, collection } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from './useAuthContext';
@@ -35,9 +36,10 @@ const useAuthService = () => {
           score: 0,
           userID: uid
         });
+        navigate('/home');
       }
     } catch (err) {
-      console.error('Error while signing in', err);
+      toast.error(`ERROR: ${err.message}`);
     }
   };
 
@@ -51,9 +53,9 @@ const useAuthService = () => {
       localStorage.setItem('token', JSON.stringify(accessToken));
       localStorage.setItem('userID', JSON.stringify(uid));
       localStorage.setItem('user', JSON.stringify(email));
-      navigate('/');
+      navigate('/home');
     } catch (err) {
-      console.error('Error while loggin in', err);
+      toast.error(`ERROR: ${err.message}`);
     }
   };
 
@@ -68,7 +70,7 @@ const useAuthService = () => {
       localStorage.setItem('userID', JSON.stringify(''));
       navigate('/');
     } catch (err) {
-      console.error('Error while logging out', err);
+      toast.error(`ERROR: ${err.message}`);
     }
   };
 

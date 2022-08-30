@@ -51,6 +51,18 @@ const QuestionPage = ({ setShowResult, setIsQuizActionsOpen }) => {
                     type="button"
                     className="reference__next btn btn--contained-primary"
                     onClick={() => {
+                      if (!selectedOption) {
+                        stateDispatch({
+                          type: ACTION_TYPES.SET_ANSWERS,
+                          payload: {
+                            userAction: 'setting',
+                            attempted: false,
+                            key: `one${questionNumber}`,
+                            value: '',
+                            score: 0
+                          }
+                        });
+                      }
                       setShowResult(true);
                     }}>
                     Submit
@@ -60,7 +72,20 @@ const QuestionPage = ({ setShowResult, setIsQuizActionsOpen }) => {
                     type="button"
                     className="reference__next btn btn--contained-primary"
                     onClick={() => {
+                      if (!selectedOption) {
+                        stateDispatch({
+                          type: ACTION_TYPES.SET_ANSWERS,
+                          payload: {
+                            userAction: 'setting',
+                            attempted: false,
+                            key: `one${questionNumber}`,
+                            value: '',
+                            score: 0
+                          }
+                        });
+                      }
                       setQuestionNumber((qn) => qn + 1);
+                      setSelectedOption('');
                     }}>
                     Save & Next
                   </button>
@@ -109,6 +134,18 @@ const QuestionPage = ({ setShowResult, setIsQuizActionsOpen }) => {
                     type="button"
                     className="question-action__next btn btn--contained-primary"
                     onClick={() => {
+                      if (!selectedOption) {
+                        stateDispatch({
+                          type: ACTION_TYPES.SET_ANSWERS,
+                          payload: {
+                            userAction: 'setting',
+                            attempted: false,
+                            key: `one${questionNumber}`,
+                            value: '',
+                            score: 0
+                          }
+                        });
+                      }
                       setShowResult(true);
                     }}>
                     Submit
@@ -118,7 +155,20 @@ const QuestionPage = ({ setShowResult, setIsQuizActionsOpen }) => {
                     type="button"
                     className="question-action__next btn btn--contained-primary"
                     onClick={() => {
+                      if (!selectedOption) {
+                        stateDispatch({
+                          type: ACTION_TYPES.SET_ANSWERS,
+                          payload: {
+                            userAction: 'setting',
+                            attempted: false,
+                            key: `one${questionNumber}`,
+                            value: '',
+                            score: 0
+                          }
+                        });
+                      }
                       setQuestionNumber((qn) => qn + 1);
+                      setSelectedOption('');
                     }}>
                     Save & Next
                   </button>

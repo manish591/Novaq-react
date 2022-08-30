@@ -7,17 +7,21 @@ const QuizCard = ({ _id, categoryName, title, totalQuestion, image }) => {
     <Link to={`/quiz/${_id}`} className="category-list__quiz quiz-card flex">
       <section className="card card--basic quiz-card__card">
         <div className="card__image-container">
-          <img src={image} alt="group" className="card__image" />
+          <img
+            src={
+              image ||
+              'https://res.cloudinary.com/dcugqfvvg/image/upload/v1661796776/l9rf9sz6cqngif9w7amf.png'
+            }
+            alt="group"
+            className="card__image"
+          />
         </div>
         <div className="card__content quiz-card__content">
-          <h3 className="card__title quiz-card__title">{title}</h3>
-          <p className="card__author quiz-card__subtitle">
-            Take this quiz to test yourself
-          </p>
+          <h2 className="card__title quiz-card__title">{title}</h2>
+          <p>{categoryName}</p>
           <p className="card__info quiz-card__info">
             {totalQuestion} Questions
           </p>
-          <p>{categoryName}</p>
         </div>
       </section>
     </Link>

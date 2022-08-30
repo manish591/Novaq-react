@@ -10,10 +10,8 @@ const Rules = ({ setShowQuizPage }) => {
 
   useScrollToTop();
   return (
-    <div>
-      <header className="header grid">
-        <Navbar />
-      </header>
+    <div className="rules-container">
+      <Navbar />
       <main className="rules">
         <ul className="lists rules__list">
           <li className="lists__item lists__heading">
@@ -47,13 +45,8 @@ const Rules = ({ setShowQuizPage }) => {
           </li>
           <li className="lists__item rules__item flex">
             <span className="material-icons-round">double_arrow</span>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-          </li>
-          <li className="lists__item rules__item flex">
-            <span className="material-icons-round">double_arrow</span>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
-              amet!
+              Quitting quiz in between will affect your leaderboard position.
             </p>
           </li>
           <li className="lists__item rules__item--action">

@@ -3,6 +3,7 @@ import './Dashboard.css';
 import { Navbar } from 'components';
 import { db } from 'firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+import { toast } from 'react-hot-toast';
 
 const Dashboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
@@ -16,7 +17,7 @@ const Dashboard = () => {
         const sortedUsers = [...users].sort((a, b) => b.score - a.score);
         setLeaderboardData(sortedUsers);
       } catch (err) {
-        console.error(err);
+        toast.error(err);
       }
     })();
   }, []);

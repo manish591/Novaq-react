@@ -1,12 +1,11 @@
 .signup {
   width: 90%;
   max-width: 400px;
-  background-color: rgba(226, 225, 225, 0.938);
+  background-color: var(--surface3);
   margin-block: 7rem;
   margin-inline: auto;
   padding-block: 1.5rem;
   padding-inline: 0;
-  box-shadow: 3px 5px 8px 1px rgba(192, 192, 192, 0.787);
 }
 
 .wrapper {
@@ -40,12 +39,6 @@
 
 .signup__greeting {
   font-size: 0.8rem;
-}
-
-.signup__name,
-.signup__email,
-.signup__password {
-  margin-block-end: 1rem;
 }
 
 label {
@@ -86,12 +79,13 @@ input[type='checkbox'] {
 
 .signup__submit {
   inline-size: 100%;
-  padding-block: 1rem;
+  padding-block: 0.8rem;
   font-weight: 700;
   border: none;
-  background: #d9843b;
+  background: var(--brand);
   border-radius: 3px;
   color: white;
+  cursor: pointer;
 }
 
 .signup__footer {
