@@ -14,7 +14,7 @@ import {
   Dashboard
 } from 'pages';
 
-import { ProtectedRoute } from 'components';
+import { ProtectedRoute, RedirectedRoute } from 'components';
 
 const App = () => {
   useScrollToTop();
@@ -31,8 +31,22 @@ const App = () => {
         }}
       />
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route
+          path="/"
+          element={
+            <RedirectedRoute>
+              <Login />
+            </RedirectedRoute>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <RedirectedRoute>
+              <Signup />
+            </RedirectedRoute>
+          }
+        />
         <Route
           path="/home"
           element={
