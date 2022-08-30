@@ -62,6 +62,14 @@ const Result = () => {
       return 'question-attempted question-card__choices--wrong';
     }
 
+    if (
+      answers[index].attempted &&
+      answers[index].value !== option &&
+      item.correct_answer === option
+    ) {
+      return 'question-card__choices--right';
+    }
+
     return '';
   };
 
