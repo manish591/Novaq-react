@@ -26,19 +26,17 @@ const Navbar = () => (
       <ul className="navbar__list navbar__list--icons flex">
         <li className="navbar__items">
           <Link to="/home">
-            <span className="material-icons-round material-black">home</span>
+            <span className="material-icons-round">home</span>
           </Link>
         </li>
         <li className="navbar__items">
           <Link to="/dashboard">
-            <span className="material-icons-round material-black">
-              dashboard
-            </span>
+            <span className="material-icons-round">dashboard</span>
           </Link>
         </li>
         <li className="navbar__items">
           <Link to="/profile">
-            <span className="material-icons-round material-black">person</span>
+            <span className="material-icons-round">person</span>
           </Link>
         </li>
       </ul>
