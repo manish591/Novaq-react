@@ -4,13 +4,14 @@ import { Footer, Navbar } from 'components';
 import { useStateContext, useScrollToTop } from 'hooks';
 import { db } from 'firebaseConfig';
 import { updateDoc, doc } from 'firebase/firestore';
+import PropTypes from 'prop-types';
 import { toast } from 'react-hot-toast';
 
 const findMyScore = (arr) => {
   return arr.reduce((acc, curr) => acc + curr.score, 0);
 };
 
-const Result = () => {
+const Result = ({ userCurrentScore }) => {
   const { state } = useStateContext();
   const useRefID = JSON.parse(localStorage.getItem('userref'));
   const userRefrence = doc(db, 'users', useRefID);
@@ -22,7 +23,7 @@ const Result = () => {
     (async () => {
       try {
         await updateDoc(userRefrence, {
-          score: findMyScore(Object.values(state.setAnswers))
+          score: userCurrentScore + findMyScore(Object.values(state.setAnswers))
         });
       } catch (err) {
         toast.error('Error occured');
@@ -119,6 +120,10 @@ const Result = () => {
       <Footer />
     </div>
   );
+};
+
+Result.propTypes = {
+  userCurrentScore: PropTypes.number.isRequired
 };
 
 export { Result };

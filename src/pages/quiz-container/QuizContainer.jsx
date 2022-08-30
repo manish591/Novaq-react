@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast';
 const QuizContainer = () => {
   const [showQuizPage, setShowQuizPage] = useState(false);
   const [showResult, setShowResult] = useState(false);
+  const [userCurrentScore, setUserCurrentScore] = useState(0);
   const [isQuizActionsOpen, setIsQuizActionsOpen] = useState(false);
   const { quizId } = useParams();
   const { stateDispatch, state } = useStateContext();
@@ -45,6 +46,7 @@ const QuizContainer = () => {
           return item.userID === userID;
         });
         localStorage.setItem('userref', JSON.stringify(currentUser.id));
+        setUserCurrentScore(currentUser.score);
       } catch (err) {
         toast.error('Error Occured');
       }
@@ -67,7 +69,7 @@ const QuizContainer = () => {
         </div>
       ) : null}
 
-      {showResult && <Result />}
+      {showResult && <Result userCurrentScore={userCurrentScore} />}
       {isQuizActionsOpen && (
         <QuizActions setIsQuizActionsOpen={setIsQuizActionsOpen} />
       )}
