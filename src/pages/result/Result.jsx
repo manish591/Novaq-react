@@ -14,6 +14,7 @@ const Result = () => {
   const { state } = useStateContext();
   const useRefID = JSON.parse(localStorage.getItem('userref'));
   const userRefrence = doc(db, 'users', useRefID);
+  const userAnswers = Object.values(state.setAnswers);
 
   useScrollToTop();
 
@@ -40,6 +41,30 @@ const Result = () => {
     return false;
   };
 
+  const getClassName = (answers, item, index, option) => {
+    if (!answers[index].attempted && item.correct_answer === option) {
+      return 'question-card__choices--right';
+    }
+
+    if (
+      answers[index].attempted &&
+      answers[index].value === option &&
+      item.correct_answer === option
+    ) {
+      return 'question-attempted question-card__choices--right';
+    }
+
+    if (
+      answers[index].attempted &&
+      answers[index].value === option &&
+      item.correct_answer !== option
+    ) {
+      return 'question-attempted question-card__choices--wrong';
+    }
+
+    return '';
+  };
+
   return (
     <div>
       <header className="header grid">
@@ -59,17 +84,19 @@ const Result = () => {
             state?.currentQuiz?.mcqs.map((item, index) => {
               return (
                 <article key={item._id} className="question-card">
-                  <p className="question-card__number">Question One</p>
+                  <p className="question-card__number">Question {index + 1}</p>
                   <h2 className="question-card__title">{item.question}</h2>
                   <ul className="question-card__choices-list grid">
                     {item.options.map((option) => {
                       return (
                         <li
                           key={option}
-                          className={`question-card__choices ${
-                            item.correct_answer === option &&
-                            'question-card__choices--right'
-                          }`}>
+                          className={`question-card__choices ${getClassName(
+                            userAnswers,
+                            item,
+                            index,
+                            option
+                          )}`}>
                           {option}
                         </li>
                       );
